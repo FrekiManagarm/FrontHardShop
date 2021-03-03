@@ -1,6 +1,6 @@
 import React from 'react'
 
-const PSUList = () => {
+const Step2 = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const PSUList = () => {
     )
 }
 
-export default PSUList
+export default Step2
