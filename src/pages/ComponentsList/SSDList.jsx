@@ -1,6 +1,6 @@
 import React from 'react'
 
-const RAMList = () => {
+const SSDList = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const RAMList = () => {
     )
 }
 
-export default RAMList
+export default SSDList
