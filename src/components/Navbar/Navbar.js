@@ -1,33 +1,28 @@
-import React, { useState } from 'react';
-import { Button } from '../Button';
-import { MenuItems }  from './MenuItems';
-import './Navbar.css';
+import React, { useState } from "react";
+import { ReactComponent as LogoIcon } from "../../assets/images/logo.svg";
+import { Nav, Container, Hamburger, LinkWrapper, Button, MenuLink, Menu } from './Navbar.style';
 
-export default function Navbar() {
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <Nav>
+      <Container>
+        <LogoIcon />
+        <Hamburger onClick={() => setIsOpen(!isOpen)}>
+          <span />
+          <span />
+          <span />
+        </Hamburger>
+        <Menu isOpen={isOpen}>
+          <LinkWrapper>
+            <MenuLink href="">Rechercher</MenuLink>
+            <MenuLink href="">Connexion</MenuLink>
+            <Button>Join Now</Button>
+          </LinkWrapper>
+        </Menu>
+      </Container>
+    </Nav>
+  );
+};
 
-    const [clicked, setclicked] = useState(false);
-
-    const handleClick = () => {
-        setclicked(!clicked)
-    }
-
-    return (
-        <nav className="NavbarItems">
-            <h1 className="navbar-logo">HardShop</h1><i className="fab fa-react"></i>
-            <div className="menu-icon" onClick={handleClick}>
-                <i className={clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
-            </div>
-            <ul className={clicked ? 'nav-menu active' : 'nav-menu'}>
-                {MenuItems.map((item, index) => {
-                    return(
-                    <li key={index}>
-                        <a className={item.cName} href={item.url}>
-                            {item.title}
-                        </a>
-                    </li>
-                )})}
-            </ul>
-            <Button>Sign Up</Button>
-        </nav>
-    )
-}
+export default Navbar
