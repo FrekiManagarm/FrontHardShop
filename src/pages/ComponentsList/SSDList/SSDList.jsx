@@ -1,10 +1,11 @@
 import React from 'react'
+import { SSDListPageWrapper } from './SSDList.style'
 
 const SSDList = () => {
     return (
-        <div>
+        <SSDListPageWrapper>
             
-        </div>
+        </SSDListPageWrapper>
     )
 }
 

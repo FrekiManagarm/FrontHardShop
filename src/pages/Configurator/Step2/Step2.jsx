@@ -1,10 +1,11 @@
 import React from 'react'
+import { Step2PageWrapper } from './Step2.style'
 
 const Step2 = () => {
     return (
-        <div>
+        <Step2PageWrapper>
             
-        </div>
+        </Step2PageWrapper>
     )
 }
 
