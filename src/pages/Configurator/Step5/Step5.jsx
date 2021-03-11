@@ -1,4 +1,5 @@
 import React from 'react'
+import { Step5PageWrapper } from './Step5.style';
 
 const Step5 = () => {
     return (
