@@ -34,7 +34,7 @@ export const AppRouter = () => {
             <Route component={Step4} path="/Configurator/Step4"  />
             <Route component={Step5} path="/Configurator/Step5"  />
             <Route component={Step6} path="/Configurator/Step6"  />
-            <Route component={Step7} path="/Configuration/Step7"  />
+            <Route component={Step7} path="/Configurator/Step7"  />
         </Switch>
     )
 }
