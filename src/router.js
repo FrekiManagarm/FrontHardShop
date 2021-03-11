@@ -7,6 +7,7 @@ import PSUList from './pages/ComponentsList/PSUList/PSUList';
 import RAMList from './pages/ComponentsList/RAMList/RAMList';
 import SSDList from './pages/ComponentsList/SSDList/SSDList';
 import HomePage from './pages/HomePage';
+import StartConfig from './pages/HomePage';
 import Step1 from './pages/Configurator/Step1/Step1';
 import Step2 from './pages/Configurator/Step2/Step2';
 import Step3 from './pages/Configurator/Step3/Step3';
@@ -26,6 +27,7 @@ export const AppRouter = () => {
             <Route component={PSUList} path="/PSUs" />
             <Route component={RAMList} path="/RAMs" />
             <Route component={SSDList} path="/SSDs" />
+            <Route component={StartConfig} path="/Configurator" />
             <Route component={Step1} path="/Configurator/Step1"  />
             <Route component={Step2} path="/Configurator/Step2"  />
             <Route component={Step3} path="/Configurator/Step3"  />
