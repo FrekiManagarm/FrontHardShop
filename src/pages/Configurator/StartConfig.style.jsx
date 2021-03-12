@@ -5,6 +5,6 @@ export const StartConfigPageWrapper = styled.div`
     width: 100vw;
 `;
 
-export const BeginConfigLink = styled.div`
+export const BeginConfigLink = styled.a`
     padding-top: 20px;
 `;

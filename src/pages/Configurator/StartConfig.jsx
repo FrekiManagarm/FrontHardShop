@@ -5,9 +5,8 @@ import { BeginConfigLink, StartConfigPageWrapper } from './StartConfig.style'
 const StartConfig = () => {
     return (
         <StartConfigPageWrapper>
-            <Navbar />
-            <BeginConfigLink>
-                <a href="/Configurator/Step1">Commencer une configuration</a>
+            <BeginConfigLink href="/Configurator/Step1">
+                Commencer une configuration
             </BeginConfigLink>
         </StartConfigPageWrapper>
     )

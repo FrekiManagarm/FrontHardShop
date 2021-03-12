@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as BRouter, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 import { MenuProvider } from './state';
@@ -51,7 +51,7 @@ const GlobaleStyle = createGlobalStyle`
 
 const App = () => {
   return (
-    <BRouter>
+    <Router>
       <div className="App">
         <GlobaleStyle />
         <MenuProvider>
@@ -75,8 +75,7 @@ const App = () => {
         <Route component={Step6} path="/Configurator/Step6"  />
         <Route component={Step7} path="/Configurator/Step7"  />
       </div>
-      
-    </BRouter>
+    </Router>
   )
 }
 

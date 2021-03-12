@@ -1,20 +1,21 @@
 import React from "react";
 import { useMenuContext } from "../../../state/Menu";
 import { useScrollFreeze } from "../../../hooks/useScrollFreeze";
-import { NavLinks } from "./NavLinks";
+import DesktopNavLinks from "./NavLinks";
+import { MobileNav } from './MobileNav.style';
 
-const MobileNav = () => {
+const MobileNavbar = () => {
   const { isMenuOpen } = useMenuContext();
   useScrollFreeze(isMenuOpen);
   return (
     <>
       {isMenuOpen && (
         <MobileNav>
-          <NavLinks />
+          <DesktopNavLinks />
         </MobileNav>
       )}
     </>
   );
 };
 
-export default MobileNav;
+export default MobileNavbar;
