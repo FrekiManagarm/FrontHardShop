@@ -4,7 +4,7 @@ import { useTheme } from "../../../hooks/useTheme";
 import Icon from '../Icon';
 import { NavLink, NavLinksWrapper } from './NavLinks.style';
 
-export const links = ["Accueil", "Configurator", "News"];
+export const links = ["Configurator", "News", "Contact"];
 
 const DesktopNavLinks = () => {
   const { closeMenu } = useMenuContext();
