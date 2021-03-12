@@ -23,12 +23,9 @@ import Step7 from './pages/Configurator/Step7/Step7';
 
 const GlobaleStyle = createGlobalStyle`
   ${reset};
-
-
   html {
     box-sizing: border-box;
   }
-
   body {
     font-family: "Montserrat", sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -36,18 +33,16 @@ const GlobaleStyle = createGlobalStyle`
     background-color: var(--bg);
     color: var(--text);
   }
-
   * {
     margin: 0;
     padding: 0;
   }
-
   *,
   *::before,
   *::after {
     box-sizing: inherit;
   }
-
+  
   a {
     text-decoration: none;
   }
