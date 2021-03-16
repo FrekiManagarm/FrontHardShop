@@ -13,6 +13,7 @@
     "antd": "^4.13.1",
     "axios": "^0.21.1",
     "hamburger-react": "^2.4.0",
+    "mime": "^2.5.2",
     "react": "^17.0.1",
     "react-animated-slider": "^2.0.0",
     "react-dom": "^17.0.1",
@@ -22,7 +23,6 @@
     "react-scripts": "4.0.1",
     "react-step-wizard": "^5.3.5",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0",
     "styled-components": "^5.2.1",
     "styled-reset": "^4.3.4"
   },

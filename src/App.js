@@ -12,7 +12,7 @@ import PSUList from './pages/ComponentsList/PSUList/PSUList';
 import RAMList from './pages/ComponentsList/RAMList/RAMList';
 import SSDList from './pages/ComponentsList/SSDList/SSDList';
 import HomePage from './pages/HomePage';
-import StartConfig from './pages/HomePage';
+import StartConfig from './pages/Configurator/StartConfig';
 import Step1 from './pages/Configurator/Step1/Step1';
 import Step2 from './pages/Configurator/Step2/Step2';
 import Step3 from './pages/Configurator/Step3/Step3';
@@ -57,7 +57,7 @@ const App = () => {
         <MenuProvider>
           <Navbar />
         </MenuProvider>
-        
+      </div>
         <Route component={HomePage} exact path="/" />
         <Route component={CPUList} path="/CPUs" />
         <Route component={GPUList} path="/GPUs" />
@@ -74,7 +74,6 @@ const App = () => {
         <Route component={Step5} path="/Configurator/Step5"  />
         <Route component={Step6} path="/Configurator/Step6"  />
         <Route component={Step7} path="/Configurator/Step7"  />
-      </div>
     </Router>
   )
 }

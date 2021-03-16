@@ -4,7 +4,9 @@ import { Step3PageWrapper } from './Step3.style'
 const Step3 = () => {
     return (
         <Step3PageWrapper>
-            
+            <form>
+                
+            </form>
         </Step3PageWrapper>
     )
 }

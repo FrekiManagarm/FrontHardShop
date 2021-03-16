@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 import { chooseCPU } from '../rootSlice';
 import { Step1PageWrapper } from './Step1.style'; 
 
@@ -16,7 +16,7 @@ const Step1 = () => {
 
     const onSubmit = (data) => {
         dispatch(chooseCPU(data.CPU));
-        history.push('../Step2/Step2.jsx');
+        history.push('/Configurator/Step2');
     }
 
     return (
@@ -27,6 +27,7 @@ const Step1 = () => {
                     <option value="Intel">Intel</option>
                     <option value="AMD">AMD</option>
                 </select>
+                <button>Carte Mère</button>
             </form>
         </Step1PageWrapper>
     )

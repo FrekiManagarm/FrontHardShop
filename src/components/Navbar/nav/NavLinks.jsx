@@ -4,21 +4,27 @@ import { useTheme } from "../../../hooks/useTheme";
 import Icon from '../Icon';
 import { NavLink, NavLinksWrapper } from './NavLinks.style';
 
-export const links = ["Configurator", "News", "Contact"];
-
 const DesktopNavLinks = () => {
   const { closeMenu } = useMenuContext();
   const [theme, toggleTheme] = useTheme();
 
   return (
     <NavLinksWrapper className="nav-links">
-      {links.map((link) => (
-        <li key={link}>
-          <NavLink to={`/${link}`} className="link" onClick={closeMenu}>
-            {link}
+        <li key={"Configurator"}>
+          <NavLink to="/Configurator" className="link" onClick={closeMenu}>
+            Configurator
           </NavLink>
         </li>
-      ))}
+        <li key={"Composants"}>
+          <NavLink to="/ComposantsList" className="link" onClick={closeMenu}>
+              Composants
+          </NavLink>
+        </li>
+        <li key={"News"}>
+          <NavLink to="/ComposantsList" className="link" onClick={closeMenu}>
+              Composants
+          </NavLink>
+        </li>
       <li>
         <button onClick={toggleTheme}>
           <Icon name={theme === "dark" ? "day" : "night"} />

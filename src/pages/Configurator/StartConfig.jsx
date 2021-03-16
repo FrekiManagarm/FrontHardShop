@@ -1,5 +1,4 @@
 import React from 'react'
-import Navbar from '../../components/Navbar/Navbar'
 import { BeginConfigLink, StartConfigPageWrapper } from './StartConfig.style'
 
 const StartConfig = () => {
