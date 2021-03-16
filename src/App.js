@@ -66,7 +66,7 @@ const App = () => {
         <Route component={PSUList} path="/PSUs" />
         <Route component={RAMList} path="/RAMs" />
         <Route component={SSDList} path="/SSDs" />
-        <Route component={StartConfig} path="/Configurator" />
+        <Route component={StartConfig} path="/StartConfig" />
         <Route component={Step1} path="/Configurator/Step1"  />
         <Route component={Step2} path="/Configurator/Step2"  />
         <Route component={Step3} path="/Configurator/Step3"  />

@@ -13,7 +13,7 @@ const rootSlice = createSlice({
         SSD: {},
     },
     reducers: {
-        chooseCPU: (state, action) => { state.COOLING = action.payload },
+        chooseCPU: (state, action) => { state.CPU = action.payload },
         chooseMotherBoard: (state, action) => { state.MotherBoard = action.payload },
         chooseCooling: (state, action) => { state.COOLING = action.payload },
         chooseGPU: (state, action) => { state.GPU = action.payload },

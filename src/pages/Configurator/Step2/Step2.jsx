@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { chooseMotherBoard } from '../rootSlice';
-import { Step2PageWrapper } from './Step2.style'
+import { CustomForm, Step2PageWrapper } from './Step2.style'
 
 const Step2 = () => {
 
@@ -21,7 +21,7 @@ const Step2 = () => {
 
     return (
         <Step2PageWrapper>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <CustomForm onSubmit={handleSubmit(onSubmit)}>
                 <label htmlFor="MotherBoard">Choisissez votre Carte Mère: </label>
                 <select id="MotherBoard" name="MotherBoard" className="motherboard-select" ref={register}>
                     <option value="Asus">Asus</option>
@@ -29,8 +29,8 @@ const Step2 = () => {
                     <option value="MSI">MSI</option>
                     <option value="NZXT">NZXT</option>
                 </select>
-                <button>Refroidissement</button>
-            </form>
+                <button>Mémoire Vive</button>
+            </CustomForm>
         </Step2PageWrapper>
     )
 }

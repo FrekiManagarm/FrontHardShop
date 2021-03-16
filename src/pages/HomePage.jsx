@@ -6,7 +6,7 @@ const HomePage = () => {
     return (
         <HomePageWrapper>
             <p>
-                Coucou
+                Bienvenue au HardShop
             </p>
             <Slid />
             

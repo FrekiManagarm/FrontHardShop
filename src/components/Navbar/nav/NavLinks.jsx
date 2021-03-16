@@ -11,7 +11,7 @@ const DesktopNavLinks = () => {
   return (
     <NavLinksWrapper className="nav-links">
         <li key={"Configurator"}>
-          <NavLink to="/Configurator" className="link" onClick={closeMenu}>
+          <NavLink to="/StartConfig" className="link" onClick={closeMenu}>
             Configurator
           </NavLink>
         </li>
@@ -21,8 +21,8 @@ const DesktopNavLinks = () => {
           </NavLink>
         </li>
         <li key={"News"}>
-          <NavLink to="/ComposantsList" className="link" onClick={closeMenu}>
-              Composants
+          <NavLink to="/News" className="link" onClick={closeMenu}>
+              News
           </NavLink>
         </li>
       <li>

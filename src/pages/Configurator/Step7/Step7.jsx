@@ -1,10 +1,12 @@
 import React from 'react'
-import { Step7PageWrapper } from './Step7.style'
+import { CustomForm, Step7PageWrapper } from './Step7.style'
 
 const Step7 = () => {
     return (
         <Step7PageWrapper>
-            
+            <CustomForm>
+                <label></label>
+            </CustomForm>
         </Step7PageWrapper>
     )
 }
