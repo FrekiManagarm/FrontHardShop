@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router';
+import axios from 'axios';
 import { CustomForm, Step4PageWrapper } from './Step4.style'
 import { chooseCooling } from '../rootSlice';
-import axios from 'axios';
+
 
 const Step4 = () => {
 
@@ -34,13 +35,14 @@ const Step4 = () => {
 
     return (
         <Step4PageWrapper>
-            <CustomForm>
+            <CustomForm onSubmit={handleSubmit(onSubmit)}>
                 <label htmlFor="Refroidissement">Choisissez votre refroidissement :</label>
-                <select id="COOLING" name="COOLING">
+                <select id="COOLING" name="COOLING" ref={register}>
                     <option value="Corsair">Corsair</option>
                     <option value="Thermaltake">Thermaltake</option>
                     <option value="NZXT">NZXT</option>
                 </select>
+                <button>Carte Graphique</button>
             </CustomForm>
         </Step4PageWrapper>
     )
