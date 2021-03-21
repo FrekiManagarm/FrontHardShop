@@ -11,6 +11,7 @@ const rootSlice = createSlice({
         PSU: {},
         RAM: {},
         SSD: {},
+        Case: {},
     },
     reducers: {
         chooseCPU: (state, action) => { state.CPU = action.payload },
@@ -20,7 +21,8 @@ const rootSlice = createSlice({
         chooseHDD: (state, action) => { state.HDD = action.payload },
         choosePSU: (state, action) => { state.PSU = action.payload },
         chooseRAM: (state, action) => { state.RAM = action.payload },
-        chooseSSD: (state, action) => { state.SSD = action.payload }
+        chooseSSD: (state, action) => { state.SSD = action.payload },
+        chooseCase: (state, action) => { state.Case = action.payload },
     }
 });
 
