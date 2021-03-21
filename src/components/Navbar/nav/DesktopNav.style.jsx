@@ -15,7 +15,7 @@ export const DesktopNav = styled.nav`
       box-shadow: var(--headerBoxShadow);
     `}
   position: fixed;
-  top: 0;
+  top: 10px;
   left: 0;
   width: 100%;
   height: 64px;

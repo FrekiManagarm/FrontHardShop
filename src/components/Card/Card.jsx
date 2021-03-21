@@ -1,15 +1,21 @@
 import React from 'react'
-import { CardWrapper } from './Card.style'
-import { Card } from 'antd';
+import { Date, Description, StyledContainer, Title } from './Card.style'
 
-const ComponentCard = () => {
-    return (
-        <CardWrapper>
-            <Card>
-                
-            </Card>
-        </CardWrapper>
-    )
-}
-
-export default ComponentCard;
+const Card = ({
+    title,
+    date,
+    description,
+    comments,
+    likes,
+    views,
+    actions
+}) => (
+    <StyledContainer>
+        <Title>{title}</Title>
+        <Date>{date}</Date>
+        <Description>{description}</Description>
+        <Actions>
+            
+        </Actions>
+    </StyledContainer>
+)

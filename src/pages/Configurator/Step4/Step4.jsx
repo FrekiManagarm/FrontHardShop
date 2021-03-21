@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router';
+import axios from 'axios';
 import { CustomForm, Step4PageWrapper } from './Step4.style'
 import { chooseCooling } from '../rootSlice';
-import axios from 'axios';
+
 
 const Step4 = () => {
 
