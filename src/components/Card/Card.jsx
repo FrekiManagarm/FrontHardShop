@@ -1,21 +1,20 @@
 import React from 'react'
-import { Date, Description, StyledContainer, Title } from './Card.style'
+import { Action, Actions, Date, Description, StyledContainer, StyledPhoto, Title } from './Card.style'
 
-const Card = ({
+export const Card = ({
     title,
     date,
     description,
+    photo,
     comments,
     likes,
     views,
     actions
 }) => (
     <StyledContainer>
+        <StyledPhoto src={photo} />
         <Title>{title}</Title>
         <Date>{date}</Date>
         <Description>{description}</Description>
-        <Actions>
-            
-        </Actions>
     </StyledContainer>
 )

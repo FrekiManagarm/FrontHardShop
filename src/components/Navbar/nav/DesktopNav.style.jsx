@@ -15,10 +15,11 @@ export const DesktopNav = styled.nav`
       box-shadow: var(--headerBoxShadow);
     `}
   position: fixed;
-  top: 10px;
+  top: 0;
   left: 0;
   width: 100%;
   height: 64px;
+  margin-top: 10px;
   padding: 0 60px;
   z-index: 2;
   @media screen and (max-width: 768px) {

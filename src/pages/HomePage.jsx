@@ -1,22 +1,26 @@
 import React from 'react';
-import { Cards } from 'react-responsive-cards';
+import { Card } from '../components/Card/Card';
 import { Slid } from '../components/Slider';
 import { HomePageWrapper } from './HomePage.style';
 
 const HomePage = () => {
+
+
+    const Alert = () => {
+        alert('You have press this button');
+    }
+
     return (
         <HomePageWrapper>
             <p>
                 Bienvenue au HardShop
             </p>
             <Slid />
-            <Cards
-                details={[{
-                    title: 'Un composant',
-                    description: 'Ceci est une description',
-                    image: 'https://i.imgur.com/Q7RfYcr.jpg',
-                    renderFooter: <div>Coucou</div>
-                }]}
+            <Card 
+                title="Some Title of this Card"
+                description="Lorem Ipsum"
+                photo="https://i.imgur.com/q2MZEWb.jpg"
+                actions={Alert}
             />
             
         </HomePageWrapper>
