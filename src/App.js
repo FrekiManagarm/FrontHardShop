@@ -20,6 +20,7 @@ import Step4 from './pages/Configurator/Step4/Step4';
 import Step5 from './pages/Configurator/Step5/Step5';
 import Step6 from './pages/Configurator/Step6/Step6';
 import Step7 from './pages/Configurator/Step7/Step7';
+import Login from './pages/Login';
 
 const GlobaleStyle = createGlobalStyle`
   ${reset};
@@ -59,6 +60,7 @@ const App = () => {
         </MenuProvider>
       </div>
         <Route component={HomePage} exact path="/" />
+        <Route component={Login} path="/login" />
         <Route component={CPUList} path="/CPUs" />
         <Route component={GPUList} path="/GPUs" />
         <Route component={HDDList} path="/HDDs" />
