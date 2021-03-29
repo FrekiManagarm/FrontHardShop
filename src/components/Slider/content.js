@@ -1,26 +1,26 @@
 export const content = [
     {
-        title: "Prochainement, les nouvelles RTX 3XXX de chez NVidia",
+        title: "Bienvenue sur Le HardShop !",
         description:
-          "Ca y est ! Quelques fuites de la part d'NVidia nous ont révélées que celles-ci seront présentées cet Eté 2020. Mais rien n'est encore sûr vu le contexte actuel",
+          "Vous pouvez retrouver ici toutes les références en matière de Hardware !",
         button: "Lire plus",
         image: "https://imgur.com/VkmKzQz.jpg",
         user: "L'équipe HardShop",
         userProfile: "https://imgur.com/u7h24fM.jpg",
       },
       {
-        title: "Une nouvelle référence est là ! Asus ROG NVidia RTX 2080 Ti Strix ",
+        title: "Profitez également de notre configurateur",
         description:
-          "Un monstre de puissance à la portée de tous. Sans son prix allucinant la vitrine de chez Asus nous délivre une puissance incomparable.",
+          "Le configurateur vous permettras de faire une configuration de A à Z ! Et grâce à nos liens d'affiliation vous pourrez réaliser en un rien de temps la configuration de vos rêves.",
         button: "Découvrir",
         image: "https://imgur.com/2Z3HPtl.jpg",
         user: "L'équipe HardShop",
         userProfile: "https://imgur.com/u7h24fM.jpg",
       },
       {
-        title: "Phasellus volutpat metus",
+        title: "Les News Hardware seront bientôt là un peu de patience nous y travaillons .......",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Duis mollis, est non commodo luctus, nisi erat porttitor ligula.",
+          "Vous retrouverez sur le site du HardShop toutes les news en lien avec le Hardware, vous êtes impatients de recevoir toutes les ",
         button: "Buy now",
         image: "https://i.imgur.com/DvmN8Hx.jpg",
         user: "L'équipe HardShop",

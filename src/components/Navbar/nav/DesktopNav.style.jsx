@@ -29,8 +29,9 @@ export const DesktopNav = styled.nav`
   .logo {
     flex: 2;
     color: var(--text);
-    font-weight: bold;
-    font-size: 32px;
+    font-family: 'Nunito';
+    font-weight: 600;
+    font-size: 64px;
   }
   .nav-links {
       font-weight: bold;

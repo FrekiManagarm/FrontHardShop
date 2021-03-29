@@ -1,4 +1,5 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -10,11 +11,16 @@ import { CustomForm, Step1PageWrapper } from './Step1.style';
 
 const Step1 = () => {
 
+    const [cpu, setCpu] = useState([])
     const dispatch = useDispatch();
     const history = useHistory();
     const CPU = useSelector(state => state.CPU);
     const { register, handleSubmit } = useForm({
         defaultValues: { CPU }
+    })
+
+    useEffect(() => {
+        const result = axios.get()
     })
 
     const onSubmit = (data) => {

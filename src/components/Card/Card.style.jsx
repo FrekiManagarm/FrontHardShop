@@ -1,81 +1,68 @@
 import styled from 'styled-components';
 
-export const StyledContainer = styled.div`
-    margin: 100px;
-    border: 1px solid var(--text);
-    border-radius: 15px;
-    box-shadow: 10px 10px 1px 1px rgba(0, 0, 0, 0.2);
-    width: 25%;
-    padding: 25px 12px 18px;
-    background-image: linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%);
-    &:hover {
-
-    }
-`;
-
-export const Title = styled.h2`
-    color: var(--text);
-    font-weight: bold;
-    @media (max-width: 500px) {
-        font-size: 1rem;
-    }
-`;
-
-export const Date = styled.div`
-    color: var(--text);
-    font-weight: bold;
-    margin: 6px 0;
-    @media (max-width: 500px) {
-        font-size: 0.8rem;
-    }
-`;
-
-export const Description = styled.p`
-    color: var(--text);
-    font-weight: bold;
-    @media (max-width: 500px) {
-        font-size: 0.75rem;
-    }
-`;
-
-export const Actions = styled.div`
-    color: #333;
+export const Container = styled.div`
     display: flex;
-    align-items: center;
-    svg {
-        transform: translateY(2px);
-        margin-right: 5px;
-    }
-    @media (max-width: 500px) {
-        flex-direction: column;
-        & button {
-            width: 100%;
-            margin-bottom: 4px;
-            font-size: 0.65rem;            
-        }
-    }
+    margin: 100px;
+    flex-direction: column;
+    width: 450px;
+    height: 500px;
+    word-wrap: break-word;
+    background-color: var(--bg);
+    background-clip: border-box;
+    border: 1px solid var(--text);
+    border-radius: 0.25rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    overflow: hidden;
 `;
 
-export const Action = styled.button`
-    margin: 0 5px;
-    padding: 8px 14px;
-    background: rgba(155, 155, 155, 0.2);
-    color: var(--bg);
-    cursor: pointer;
-    border: 1px solid #fff;
-    outline: 0;
-    font-weight: 300;
-    :hover {
-        opacity: 0.8;
-    }
-    :active {
-        background: var(--bg);
-    }
+export const Body = styled.div`
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.25rem;
 `;
 
-export const StyledPhoto = styled.img`
+export const Title = styled.h1`
+    font-family: 'Nunito';
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin: 0;
+`;
+
+export const Text = styled.p`
+    font-family: 'Nunito';
+    line-height: 20px;
+    color: #6c757d;
+`;
+
+export const Image = styled.img`
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border: 1px solid var(--bg);
+`;
+
+export const Button = styled.button`
+    cursor: pointer;
+    margin-top: auto;
+    width: 100%;
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+    display: block;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: center;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    
+    &:hover {
+        color: #fff;
+        background-color: #218838;
+        border-color: #1e7e34;
+    }
 `;
