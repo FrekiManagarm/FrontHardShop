@@ -11,6 +11,10 @@ const HomePage = () => {
         alert('You have press this button');
     }
 
+    const userIsConnected = () => {
+        
+    }
+
     return (
         <HomePageWrapper>
             <Slid />
