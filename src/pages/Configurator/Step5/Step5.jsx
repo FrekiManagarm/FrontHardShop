@@ -17,23 +17,18 @@ const Step5 = () => {
     })
 
     useEffect(async () => {
-        await axios.get('').then(
-            res => {
-                const gpus = res.data
-                console.log(gpus);
-                setGpu(gpus);
-            }
-        )
+        const result = await axios.get('');
+        setGpu(result.data);
     })
 
-    const onSubmit = (data) => {
+    const choice = (data) => {
         dispatch(chooseGPU(data.GPU));
         history.push('/Configurator/Step6');
     }
 
     return (
         <Step5PageWrapper>
-            <CustomForm onSubmit={handleSubmit(onSubmit)}>
+            <CustomForm onSubmit={handleSubmit(choice)}>
                 <label htmlFor="GPU">Choisissez votre Carte Graphique : </label>
                 <select id="GPU" name="GPU" ref={register}>
                     <option value="MSI">MSI</option>

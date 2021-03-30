@@ -4,6 +4,7 @@ import styled from 'styled-components';
 export const NavLinksWrapper = styled.ul`
   flex: 1;
   display: flex;
+  font-family: 'Nunito';
   justify-content: center;
   align-items: center;
   list-style: none;
@@ -31,6 +32,7 @@ export const NavLinksWrapper = styled.ul`
 export const NavLink = styled(Link)`
   position: relative;
   color: white;
+  font-family: 'Nunito';
   text-decoration: none;
   text-transform: capitalize;
   color: var(--text);
