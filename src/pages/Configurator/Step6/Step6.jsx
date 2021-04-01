@@ -12,24 +12,21 @@ const Step6 = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const SSD = useSelector(state => state.SSD);
-    const [ register, handleSubmit ] = useForm({
+    const { register, handleSubmit } = useForm({
         defaultValues: { SSD }
     });
 
     useEffect(async () => {
-        await axios.get('').then(
-            res => {
-                const ssds = res.data;
-                console.log(ssds);
-                setSsd(ssds);
-            }
-        )
+        const { data } = await axios.get('');
+        setSsd(data);
     })
 
     const onSubmit = (data) => {
         dispatch(chooseSSD(data.SSD));
         history.push('/Configurator/Step7');
     }
+
+    console.log(ssd);
 
 
     return (
@@ -42,7 +39,7 @@ const Step6 = () => {
                     <option value="Samsung">Samsung</option>
                     <option value="Seagate">Seagate</option>
                 </select>
-                <button>Alimentation</button>
+                <button>Disque Dur</button>
             </CustomForm>
         </Step6PageWrapper>
     )

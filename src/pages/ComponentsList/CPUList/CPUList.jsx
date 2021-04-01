@@ -4,11 +4,11 @@ import { CPUListPageWrapper } from './CPUList.style'
 
 const CPUList = () => {
 
-    const [data, setData] = useState();
+    const [data, setData] = useState([]);
 
     useEffect(async () => {
-        const result = await axios.get(`http://jsonplaceholder.typicode.com/users`);
-        setData(result.data);
+        const { data } = await axios.get(`http://jsonplaceholder.typicode.com/users`);
+        setData(data);
     }, [])
 
     console.log(data);

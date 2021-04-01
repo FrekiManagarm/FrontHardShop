@@ -21,6 +21,10 @@ import Step5 from './pages/Configurator/Step5/Step5';
 import Step6 from './pages/Configurator/Step6/Step6';
 import Step7 from './pages/Configurator/Step7/Step7';
 import Login from './pages/Login';
+import Register from './pages/Register';
+import Step8 from './pages/Configurator/Step8/Step8';
+import Step9 from './pages/Configurator/Step9/Step9';
+import Final from './pages/Configurator/Final/Final';
 
 const GlobaleStyle = createGlobalStyle`
   ${reset};
@@ -61,6 +65,7 @@ const App = () => {
       </div>
         <Route component={HomePage} exact path="/" />
         <Route component={Login} path="/login" />
+        <Route component={Register} path="/register" />
         <Route component={CPUList} path="/CPUs" />
         <Route component={GPUList} path="/GPUs" />
         <Route component={HDDList} path="/HDDs" />
@@ -76,6 +81,9 @@ const App = () => {
         <Route component={Step5} path="/Configurator/Step5"  />
         <Route component={Step6} path="/Configurator/Step6"  />
         <Route component={Step7} path="/Configurator/Step7"  />
+        <Route component={Step8} path="/Configurator/Step8" />
+        <Route component={Step9} path="/Configurator/Step9" />
+        <Route component={Final} path="/Configurator/Resume" />
     </Router>
   )
 }

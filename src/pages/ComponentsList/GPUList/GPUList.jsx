@@ -5,7 +5,7 @@ import { GPUListPageWrapper } from './GPUList.style'
 const GPUList = () => {
 
     const [data, setData] = useState([]);
-    useEffect(() => {
+    useEffect(async () => {
         const { data } = await axios.get('');
         setData(data);
     })

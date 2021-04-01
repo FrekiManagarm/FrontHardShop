@@ -1,19 +1,26 @@
-import React, { useState } from 'react'
-import { useHistory } from 'react-router'
-import { LoginPageWrapper } from './Login.style'
+import axios from 'axios';
+import React, { useState } from 'react';
+import cookie from 'js-cookie';
+import { useHistory } from 'react-router';
+import { LoginPageWrapper } from './Login.style';
 
-const Login = () => {
+const Login = (props) => {
 
 
     const history = useHistory();
-    const [login, setLogin] = useState({
-        email: '',
-        password: '',
-        errors: {}
-    })
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [errors, setErrors] = useState({});
 
     const handleForm = (e) => {
         e.preventDefault();
+        const data = { email, password }
+        axios.post('http://loclahost:8000/api/auth/login', data).then(
+            // res => {
+            //     cookie.set("token", res.data.access_token);
+            //     props
+            // }
+        )
         history.push('/');
     }
 
@@ -21,7 +28,9 @@ const Login = () => {
         e.preventDefault();
         const name = e.target.name;
         const value = e.target.value;
-        setLogin({[name]: value})
+        setEmail({[name]: value});
+        setPassword({[name]: value});
+        setErrors({[name]: value});
     }
 
     return (
@@ -31,13 +40,18 @@ const Login = () => {
                     <form className="the-form" onSubmit={handleForm}> 
                         <div>
                             <label>Email</label>
-                            <input type="email" name="email" placeholder="Renseignez votre email" className="first-input" onChange={handleInput} />
+                            <input type="email" name="email" placeholder="Renseignez votre email" className="first-input" onChange={handleInput()} />
                         </div>
                         <div style={{ marginTop: "1rem" }}>
                             <label>Mot de passe</label>
-                            <input type="password" name="password" placeholder="Renseignez votre mot de passe" className="first-input" onChange={handleInput} />
+                            <input type="password" name="password" placeholder="Renseignez votre mot de passe" className="first-input" onChange={handleInput()} />
                         </div>
-
+                        {errors ? (
+                            <p style={{ color: "red", marginTop: "10px" }}>{errors}</p>
+                        ) : (
+                            ""
+                        )}
+                        <button type="submit">Se connecter</button>
                     </form>
                 </div>
             </div>
