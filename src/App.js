@@ -4,13 +4,6 @@ import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 import { MenuProvider } from './state';
 import  Navbar  from './components/Navbar/nav/index';
-import CPUList from './pages/ComponentsList/CPUList/CPUList';
-import GPUList from './pages/ComponentsList/GPUList/GPUList';
-import HDDList from './pages/ComponentsList/HDDList/HDDList';
-import MotherBoardList from './pages/ComponentsList/MotherBoardList/MotherBoardList';
-import PSUList from './pages/ComponentsList/PSUList/PSUList';
-import RAMList from './pages/ComponentsList/RAMList/RAMList';
-import SSDList from './pages/ComponentsList/SSDList/SSDList';
 import HomePage from './pages/HomePage';
 import StartConfig from './pages/Configurator/StartConfig';
 import Step1 from './pages/Configurator/Step1/Step1';
@@ -21,6 +14,7 @@ import Step5 from './pages/Configurator/Step5/Step5';
 import Step6 from './pages/Configurator/Step6/Step6';
 import Step7 from './pages/Configurator/Step7/Step7';
 import Login from './pages/Login';
+import ComponentsList from './pages/ComponentsList/ComponentsList';
 
 const GlobaleStyle = createGlobalStyle`
   ${reset};
@@ -61,13 +55,7 @@ const App = () => {
       </div>
         <Route component={HomePage} exact path="/" />
         <Route component={Login} path="/login" />
-        <Route component={CPUList} path="/CPUs" />
-        <Route component={GPUList} path="/GPUs" />
-        <Route component={HDDList} path="/HDDs" />
-        <Route component={MotherBoardList} path="/MotherBoards" />
-        <Route component={PSUList} path="/PSUs" />
-        <Route component={RAMList} path="/RAMs" />
-        <Route component={SSDList} path="/SSDs" />
+        <Route component={ComponentsList} path="/Components" />
         <Route component={StartConfig} path="/StartConfig" />
         <Route component={Step1} path="/Configurator/Step1"  />
         <Route component={Step2} path="/Configurator/Step2"  />

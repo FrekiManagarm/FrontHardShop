@@ -16,7 +16,7 @@ const DesktopNavLinks = () => {
           </NavLink>
         </li>
         <li key={"Composants"}>
-          <NavLink to="/ComposantsList" className="link" onClick={closeMenu}>
+          <NavLink to="/Components" className="link" onClick={closeMenu}>
               Composants
           </NavLink>
         </li>

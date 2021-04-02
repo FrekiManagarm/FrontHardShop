@@ -1,5 +1,4 @@
 import React from 'react';
-import Tilt from 'react-tilt'
 import { Card } from '../components/Card/Card';
 import { Slid } from '../components/Slider';
 import { HomePageWrapper } from './HomePage.style';
