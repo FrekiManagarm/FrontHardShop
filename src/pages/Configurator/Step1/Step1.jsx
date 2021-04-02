@@ -20,7 +20,8 @@ const Step1 = () => {
     })
 
     useEffect(() => {
-        const result = axios.get()
+        const { data } = axios.get('')
+        setCpu(data);
     })
 
     const onSubmit = (data) => {
