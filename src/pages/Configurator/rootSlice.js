@@ -28,4 +28,4 @@ const rootSlice = createSlice({
 
 export const reducer = rootSlice.reducer;
 
-export const { chooseCPU, chooseMotherBoard, chooseCooling, chooseGPU, chooseHDD, choosePSU, chooseRAM, chooseSSD } = rootSlice.actions;
+export const { chooseCPU, chooseMotherBoard, chooseCooling, chooseGPU, chooseHDD, choosePSU, chooseRAM, chooseSSD, chooseCase } = rootSlice.actions;

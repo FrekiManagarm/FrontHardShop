@@ -14,7 +14,6 @@ export const BeginConfigLink = styled(Link)`
     font-size: 900;
     font-weight: bolder;
     &:hover {
-        position: relative;
-        transform: translateY(3px);
+        background-color: blueviolet;
     }
 `;

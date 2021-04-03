@@ -15,6 +15,7 @@
     "classnames": "^2.2.6",
     "formik": "^2.2.6",
     "hamburger-react": "^2.4.0",
+    "js-cookie": "^2.2.1",
     "mime": "^2.5.2",
     "react": "^17.0.1",
     "react-animated-slider": "^2.0.0",
