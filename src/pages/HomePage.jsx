@@ -1,19 +1,16 @@
-import React from 'react';
-import Tilt from 'react-tilt'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { Card } from '../components/Card/Card';
 import { Slid } from '../components/Slider';
 import { HomePageWrapper } from './HomePage.style';
 
 const HomePage = () => {
 
-
-    const Alert = () => {
-        alert('You have press this button');
-    }
-
-    const userIsConnected = () => {
-        
-    }
+    const [data, setData] = useState([])
+    useEffect(async () => {
+        const result = await axios.get('');
+        setData(result.data);
+    })
 
     return (
         <HomePageWrapper>

@@ -2,7 +2,7 @@ export const content = [
     {
         title: "Bienvenue sur Le HardShop !",
         description:
-          "Vous pouvez retrouver ici toutes les références en matière de Hardware !",
+          "Vous pouvez retrouver ici toutes les références en matière de Hardware ! Vous pouvez également y trouver notre configurateur",
         button: "Lire plus",
         image: "https://imgur.com/VkmKzQz.jpg",
         user: "L'équipe HardShop",
