@@ -1,20 +1,23 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react'
-import { GPUListPageWrapper } from './GPUList.style'
+import { CaseListPageWrapper } from './CaseList.style'
 
-const GPUList = () => {
+const CaseList = () => {
 
     const [data, setData] = useState([]);
+
     useEffect(async () => {
         const { data } = await axios.get('');
         setData(data);
-    })
+    }, [])
+
+    console.log(data, 'data');
 
     return (
-        <GPUListPageWrapper>
-            <pre>{JSON.stringify(data)}</pre>
-        </GPUListPageWrapper>
+        <CaseListPageWrapper>
+            
+        </CaseListPageWrapper>
     )
 }
 
-export default GPUList
+export default CaseList

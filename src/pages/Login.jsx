@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import cookie from 'js-cookie';
+// import cookie from 'js-cookie';
 import { useHistory } from 'react-router';
 import { LoginPageWrapper } from './Login.style';
 

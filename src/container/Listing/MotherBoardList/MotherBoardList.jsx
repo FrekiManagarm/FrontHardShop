@@ -9,7 +9,9 @@ const MotherBoardList = () => {
     useEffect(async () => {
         const { data } = await axios.get('')
         setData(data)
-    })
+    }, []);
+
+    console.log(data, 'data');
 
     return (
         <MotherBoardListPageWrapper>

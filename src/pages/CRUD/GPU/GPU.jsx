@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CoolingList = () => {
+const GPU = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const CoolingList = () => {
     )
 }
 
-export default CoolingList
+export default GPU

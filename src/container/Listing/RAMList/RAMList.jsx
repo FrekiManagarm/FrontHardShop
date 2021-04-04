@@ -1,21 +1,23 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { PSUListPageWrapper } from './PSUList.style'
+import { RAMListPageWrapper } from './RAMList.style'
 
-const PSUList = () => {
+const RAMList = () => {
 
     const [data, setData] = useState([]);
 
     useEffect(async () => {
         const { data } = await axios.get('');
         setData(data);
-    })
+    }, []);
+
+    console.log(data, 'data');
 
     return (
-        <PSUListPageWrapper>
+        <RAMListPageWrapper>
             
-        </PSUListPageWrapper>
+        </RAMListPageWrapper>
     )
 }
 
-export default PSUList
+export default RAMList

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CaseList = () => {
+const PSU = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const CaseList = () => {
     )
 }
 
-export default CaseList
+export default PSU

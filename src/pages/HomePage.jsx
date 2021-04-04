@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from "axios";
 import { Card } from '../components/Card/Card';
 import { Slid } from '../components/Slider';
 import { HomePageWrapper } from './HomePage.style';
