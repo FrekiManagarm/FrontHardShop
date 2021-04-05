@@ -11,7 +11,7 @@ const CPUList = () => {
         setData(data);
     }, [])
 
-    console.log(data);
+    console.log(data, 'data');
 
     return (
         <CPUListPageWrapper>

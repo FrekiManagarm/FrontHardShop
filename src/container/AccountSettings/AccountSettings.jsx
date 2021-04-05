@@ -1,6 +1,6 @@
 import React from 'react'
 
-const useFetchData = () => {
+const AccountSettings = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const useFetchData = () => {
     )
 }
 
-export default useFetchData
+export default AccountSettings
