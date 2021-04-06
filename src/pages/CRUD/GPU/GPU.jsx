@@ -1,10 +1,11 @@
 import React from 'react'
+import { GPUCRUDWrapper } from './GPU.style'
 
 const GPU = () => {
     return (
-        <div>
-            
-        </div>
+        <GPUCRUDWrapper>
+            <h1>CRUD pour Case</h1>
+        </GPUCRUDWrapper>
     )
 }
 
