@@ -1,7 +1,7 @@
 import React from 'react'
 import { CPUCRUDWrapper } from './CPU.style'
 
-const CPU = () => {
+const AddCPU = () => {
     return (
         <CPUCRUDWrapper>
             <h1>Ceci est le CRUD pour le CPU</h1>
@@ -9,4 +9,4 @@ const CPU = () => {
     )
 }
 
-export default CPU
+export default AddCPU

@@ -1,7 +1,7 @@
 import React from 'react'
 import { CoolingCRUDWrapper } from './Cooling.style'
 
-const Cooling = () => {
+const AddCooling = () => {
     return (
         <CoolingCRUDWrapper>
             
@@ -9,4 +9,4 @@ const Cooling = () => {
     )
 }
 
-export default Cooling
+export default AddCooling

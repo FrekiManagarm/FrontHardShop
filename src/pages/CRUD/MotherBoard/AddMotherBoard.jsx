@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import mbService from '../../../services/mbService';
-import { MotherBoardCRUDWrapper } from './MotherBoard.style';
+import { Container, CustomInput, CustomLabel, MotherBoardCRUDWrapper } from './MotherBoard.style';
 
 const AddMotherBoard = () => {
 
@@ -71,7 +71,109 @@ const AddMotherBoard = () => {
                 </div>
             ) : (
                 <div>
-                    
+                    <form method="POST">
+                        <Container className="form-group">
+                            <CustomLabel htmlFor="nom">Nom</CustomLabel>
+                            <CustomInput
+                                type="text"
+                                className="form-control"
+                                id="nom"
+                                required
+                                value={motherBoard.nom}
+                                onChange={handleInputChange}
+                                name="nom"
+                            />
+                        </Container>
+
+                        <Container className="form-group">
+                            <CustomLabel htmlFor="image">Image</CustomLabel>
+                            <CustomInput
+                                type="text"
+                                className="form-control"
+                                id="image"
+                                required
+                                value={motherBoard.image}
+                                onChange={handleInputChange}
+                                name="image"
+                            />
+                        </Container>
+
+                        <Container className="form-group">
+                            <CustomLabel htmlFor="chipset">Chipset</CustomLabel>
+                            <CustomInput 
+                                type="text"
+                                className="form-control"
+                                id="chipset"
+                                required
+                                value={motherBoard.chipset}
+                                onChange={handleInputChange}
+                                name="chipset"
+                            />
+                        </Container>
+
+                        <Container className="form-group">
+                            <CustomLabel htmlFor="constructeur">Constructeur</CustomLabel>
+                            <CustomInput
+                                type="text"
+                                className="form-control"
+                                id="constructeur"
+                                required
+                                value={motherBoard.constructeur}
+                                onChange={handleInputChange}
+                                name="constructeur"
+                            />
+                        </Container>
+
+                        <Container className="form-group">
+                            <CustomLabel htmlFor="format">Format</CustomLabel>
+                            <CustomInput 
+                                type="text"
+                                className="form-control"
+                                id="format"
+                                required
+                                value={motherBoard.format}
+                                onChange={handleInputChange}
+                                name="format"
+                            />
+                        </Container>
+
+                        <Container className="form-group">
+                            <CustomLabel htmlFor="proco_compatible">Processeur Compatible</CustomLabel>
+                            <CustomInput 
+                                type="text"
+                                className="form-control"
+                                id="proco_compatible"
+                                required
+                                value={motherBoard.proco_compatible}
+                                onChange={handleInputChange}
+                                name="proco_compatible"
+                            />
+                        </Container>
+
+                        <Container className="form-group">
+                            <CustomLabel htmlFor="socket">Socket</CustomLabel>
+                            <CustomInput 
+                                type="text"
+                                className="form-control"
+                                id="socket"
+                                value={motherBoard.socket}
+                                onChange={handleInputChange}
+                                name="socket"
+                            />
+                        </Container>
+
+                        <Container className="form-group">
+                            <CustomLabel htmlFor="description">Description</CustomLabel>
+                            <textarea 
+                                placeholder="Description"
+                                className="form-control"
+                                id="description"
+                                value={motherBoard.description}
+                                onChange={handleInputChange}
+                                name="description"
+                            />
+                        </Container>
+                    </form>
                 </div>
             )}
         </MotherBoardCRUDWrapper>

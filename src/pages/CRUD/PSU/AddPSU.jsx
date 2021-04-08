@@ -1,6 +1,6 @@
 import React from 'react'
 
-const RAM = () => {
+const AddPSU = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const RAM = () => {
     )
 }
 
-export default RAM
+export default AddPSU
