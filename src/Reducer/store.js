@@ -1,6 +1,17 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { reducer } from '../pages/Configurator/rootSlice';
+import { createStore } from '@reduxjs/toolkit';
+import AllReducers from './AllReducers';
 
-export const store = configureStore({
-    reducer
-});
+const initialStates = {
+    auth: {
+        loggedIn: false,
+        user: {}
+    }
+}
+
+const Store = createStore(
+    AllReducers,
+    initialStates,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)
+
+export default Store;

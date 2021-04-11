@@ -14,7 +14,8 @@ const AddCase = () => {
         description: '',
         format: '',
         nom: '',
-        ventilateur: ''
+        ventilateur: '',
+        published: false
     }
 
     const [Case, setCase] = useState(initialCaseState);
