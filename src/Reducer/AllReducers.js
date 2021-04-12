@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import AuthReducer from './AuthReducer';
-import { rootSlice } from '../pages/Configurator/rootSlice';
+import { reducer } from '../pages/Configurator/rootSlice';
 
 const AllReducers = combineReducers({
     auth: AuthReducer,
-    config: rootSlice
+    config: reducer
 })
 
 export default AllReducers;
