@@ -225,7 +225,7 @@ const Case = (props) => {
                     >
                         Update
                     </button>
-                    <p>{message}</p>
+                    <p>{Message}</p>
                 </div>
             ) : (
                     <div>
