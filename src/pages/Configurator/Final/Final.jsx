@@ -7,10 +7,11 @@ import { Link } from 'react-router-dom';
 const Final = () => {
 
     const state = useSelector(state => state);
+    console.log(state);
 
     return (
         <FinalPageWrapper>
-            <pre>{JSON.stringify(state.config, null, 2)}</pre>
+            <pre>{JSON.stringify(state, null, 2)}</pre>
             <Link to="/">Start Over</Link>
         </FinalPageWrapper>
     )

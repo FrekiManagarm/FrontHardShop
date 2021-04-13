@@ -1,16 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import axios from "axios";
+import React from 'react';
 import { Card } from '../components/Card/Card';
 import { Slid } from '../components/Slider';
 import { HomePageWrapper } from './HomePage.style';
+import { useSelector } from 'react-redux';
 
 const HomePage = () => {
 
-    const [data, setData] = useState([])
-    useEffect(async () => {
-        const result = await axios.get('');
-        setData(result.data);
-    })
+    const state = useSelector(state => state);
+    console.log(state, 'state');
 
     return (
         <HomePageWrapper>

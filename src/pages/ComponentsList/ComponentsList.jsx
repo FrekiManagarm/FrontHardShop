@@ -11,14 +11,27 @@ const ComponentsList = () => {
                     <Tab>Carte Graphique</Tab>
                     <Tab>SSD</Tab>
                     <Tab>HDD</Tab>
-                    <Tab></Tab>
+                    <Tab>Alimentation</Tab>
+                    <Tab>Boitier</Tab>
                 </TabList>
-            // The Panels of components
+
                 <TabPanel>
                     
                 </TabPanel>
                 <TabPanel>
 
+                </TabPanel>
+                <TabPanel>
+
+                </TabPanel>
+                <TabPanel>
+
+                </TabPanel>
+                <TabPanel>
+
+                </TabPanel>
+                <TabPanel>
+                    
                 </TabPanel>
             </Tabs>
         </ComponentsListPageWrapper >

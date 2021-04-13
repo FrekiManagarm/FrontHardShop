@@ -6,19 +6,22 @@ import { Button, CustomInput, CustomLabel, Field, RegisterWrapper, Title } from 
 
 const Register = () => {
 
+    const initialLoginState = {
+        Name: '',
+        email: '',
+        password: '',
+        password_confirmation: '',
+        errors: {}
+    }
 
     const history = useHistory();
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [Name, setName] = useState("");
-    const [password_confirmation, setPassword_confirmation] = useState("");
-    const [errors, setErrors] = useState({});
+    const [Login, setLogin] = useState(initialLoginState)
 
     const handleForm = (e) => {
         e.preventDefault();
         const data = { Name, email, password, password_confirmation }
 
-        axios.post('', data)
+        axios.post('http://localhost:8000/api/auth/register', data)
         .then(
             res => {
                 cookie.set("token", res.data.access_token);
@@ -28,24 +31,9 @@ const Register = () => {
         ).catch(e => setErrors(e.response.data.errors))
     }
 
-    const handleName = e => {
-        e.preventDefault();
-        setName({[e.target.name]: e.target.value});
-    }
-
-    const handleEmail = e => {
-        e.preventDefault();
-        setEmail({[e.target.name]: e.target.value});
-    }
-
-    const handlePassword = e => {
-        e.preventDefault();
-        setPassword({[e.target.name]: e.target.value});
-    }
-
-    const handleConfirmPassword = e => {
-        e.preventDefault();
-        setPassword_confirmation({[e.target.name]: e.target.value});
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        setLogin({ ...Login, [name]: value });
     }
   
 
@@ -58,19 +46,19 @@ const Register = () => {
                     <form className="the-form" onSubmit={handleForm}>
                         <Field>
                             <CustomLabel>Votre Nom</CustomLabel>
-                            <CustomInput type="text" name="name" placeholder="Renseignez votre nom" className="first-input" onChange={handleName} />
+                            <CustomInput type="text" name="Name" placeholder="Renseignez votre nom" className="first-input" onChange={handleInputChange} value={Login.Name} />
                         </Field>
                         <Field>
                             <CustomLabel>Email</CustomLabel>
-                            <CustomInput type="email" name="email" placeholder="Renseignez votre email" className="first-input" onChange={handleEmail} />
+                            <CustomInput type="email" name="email" placeholder="Renseignez votre email" className="first-input" onChange={handleInputChange} value={Login.email} />
                         </Field>
                         <Field>
                             <CustomLabel>Mot de passe</CustomLabel>
-                            <CustomInput type="password" name="password" placeholder="Renseignez votre mot de passe" className="first-input" onChange={handlePassword} />
+                            <CustomInput type="password" name="password" placeholder="Renseignez votre mot de passe" className="first-input" onChange={handleInputChange} />
                         </Field>
                         <Field>
                             <CustomLabel>Confirmez votre mot mot de passe</CustomLabel>
-                            <CustomInput type="password" name="password_confirmation" placeholder="Confirmez votre mot de passe" className="first-input" onChange={handleConfirmPassword} />
+                            <CustomInput type="password" name="password_confirmation" placeholder="Confirmez votre mot de passe" className="first-input" onChange={handleInputChange} />
                         </Field>
                         <Button type="submit">S'enregistrer</Button>
                     </form>

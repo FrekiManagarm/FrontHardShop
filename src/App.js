@@ -19,6 +19,7 @@ import Register from './pages/Authentication/Register';
 import Step8 from './pages/Configurator/Step8/Step8';
 import Step9 from './pages/Configurator/Step9/Step9';
 import Final from './pages/Configurator/Final/Final';
+import AddCase from './pages/CRUD/Case/AddCase';
 
 const GlobaleStyle = createGlobalStyle`
   ${reset};
@@ -61,6 +62,9 @@ const App = () => {
         <Route component={Login} path="/login" />
         <Route component={Register} path="/register" />
         <Route component={ComponentsList} path="/components" />
+
+        
+
         <Route component={StartConfig} path="/startconfig" />
         <Route component={Step1} path="/Configurator/Step1"  />
         <Route component={Step2} path="/Configurator/Step2"  />
@@ -72,6 +76,11 @@ const App = () => {
         <Route component={Step8} path="/Configurator/Step8" />
         <Route component={Step9} path="/Configurator/Step9" />
         <Route component={Final} path="/Configurator/Resume" />
+
+        
+
+        <Route component={AddCase} exact path="/addCase" />
+        <Route />
     </Router>
   )
 }
