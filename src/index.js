@@ -8,7 +8,7 @@ import App from './App';
 import jwt from 'jsonwebtoken'
 import axios from 'axios';
 
-const jwt_secret = 'rAoBwZnusXA2C28PEIQRsS2t2JPTiBt6e1ioxqpGZs7xRacQ7grAvclhtjnfC0Ef';
+const jwt_secret = 'YojA4BE4wRNtPpWpHQgLdj5mDIBHBxkbpw4WDphOIsEC6HH3f4jYR65CgSnUgegD';
 
 let token = cookie.get("token")
 if (token) {
@@ -17,7 +17,7 @@ if (token) {
             cookie.remove("token")
             token = null
         } else {
-            if (decoded.iss !== "http://localhost:8000/api/auth/login") {
+            if (decoded.iss !== "http://localhost:8000/api/login") {
                 cookie.remove("token")
                 token = null
             }
@@ -36,7 +36,7 @@ const render = () => {
 
 if (token) {
     axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-    axios.post("http://localhost:8000/api/auth/user-profile").then(res => {
+    axios.get("http://localhost:8000/api/me").then(res => {
         Store.dispatch({ type: "SET_LOGIN", payload: res.data })
         render();
     })

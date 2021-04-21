@@ -1,11 +1,14 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-// import cookie from 'js-cookie';
+import cookie from 'js-cookie';
 import { useHistory } from 'react-router';
 import { LoginPageWrapper } from './Login.style';
 
-const Login = (props) => {
+const Login = () => {
 
+    const initialLoginState = {
+
+    }
 
     const history = useHistory();
     const [email, setEmail] = useState('');
@@ -15,11 +18,11 @@ const Login = (props) => {
     const handleForm = (e) => {
         e.preventDefault();
         const data = { email, password }
-        axios.post('http://loclahost:8000/api/auth/login', data).then(
-            // res => {
-            //     cookie.set("token", res.data.access_token);
-            //     props
-            // }
+        axios.post('http://loclahost:8000/api/login', data).then(
+            res => {
+                cookie.set("token", res.data.access_token);
+                
+            }
         )
         history.push('/');
     }

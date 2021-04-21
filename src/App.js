@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
@@ -20,6 +21,9 @@ import Step8 from './pages/Configurator/Step8/Step8';
 import Step9 from './pages/Configurator/Step9/Step9';
 import Final from './pages/Configurator/Final/Final';
 import AddCase from './pages/CRUD/Case/AddCase';
+import Case from './pages/CRUD/Case/Case';
+import CaseList from './pages/CRUD/Case/CaseList';
+
 
 const GlobaleStyle = createGlobalStyle`
   ${reset};
@@ -50,6 +54,9 @@ const GlobaleStyle = createGlobalStyle`
 
 
 const App = () => {
+
+  const state = useSelector(state => state.auth);
+
   return (
     <Router>
       <div className="App">
@@ -79,8 +86,10 @@ const App = () => {
 
         
 
-        <Route component={AddCase} exact path="/addCase" />
-        <Route />
+        <Route component={AddCase} exact path="/CRUD/addCase" />
+        <Route component={CaseList} path="/CRUD/Cases" />
+        <Route component={Case} exact path="/CRUD/Case/:id" />
+        
     </Router>
   )
 }

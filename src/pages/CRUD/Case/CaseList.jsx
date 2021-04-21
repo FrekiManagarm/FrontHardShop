@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import caseService from '../../../services/caseService';
+import PostAPIData from '../../../post_api_data';
 import { Link } from "react-router-dom";
+import GetAPIData from '../../../get_api_data';
 
 const CaseList = () => {
 
@@ -14,14 +15,15 @@ const CaseList = () => {
     }, []);
 
     const retrieveCase = () => {
-        caseService.getAll()
-            .then(res => {
-                setCase(res.data);
+
+        const endpoint = `/Boitiers`;
+
+        GetAPIData(endpoint).then(
+            res => {
+                setCase(res.data)
                 console.log(res.data, 'data');
-            })
-        .catch(e => {
-            console.log(e);
-        })
+            }
+        ).catch(e => console.log(e));
     }
 
     const onChangeSearchTitle = (e) => {

@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router';
-import caseService from '../../../services/caseService';
+import DeleteAPIData from '../../../delete_api_data';
+import GetAPIData from '../../../get_api_data';
+import PatchAPIData from '../../../patch_api_data';
+import PostAPIData from '../../../post_api_data';
 
 const Case = (props) => {
 
@@ -23,14 +26,16 @@ const Case = (props) => {
     const [Message, setMessage] = useState("");
 
     const getCase = id => {
-        caseService.get(id)
+        const endpoint = `/Boitiers/${id}`;
+
+        GetAPIData(endpoint)
             .then(res => {
                 setCurrentCase(res.data);
                 console.log(res.data)
             })
             .catch(e => {
                 console.log(e);
-        })
+            });
     }
 
     useEffect(() => {
@@ -43,7 +48,7 @@ const Case = (props) => {
     }
 
     const updatePublished = (status) => {
-        var data = {
+        let data = {
             id: currentCase.id,
             image: currentCase.image,
             RGB: currentCase.RGB,
@@ -56,40 +61,41 @@ const Case = (props) => {
             ventilateur: currentCase.ventilateur,
             published: status
         }
-    }
+   
+        const endpoint = `/Boitiers/${currentCase.id}`;
 
-    caseService.update(currentCase.id, data)
-        .then(res => {
-            setCurrentCase({ ...currentCase, published: status });
-            console.log(res.data);
-        })
-        .catch(e => {
-        console.log(e)
-        })
-    
-    const updateCase = () => {
-        caseService.update(currentCase.id, currentCase)
-            .then(res => {
-                console.log(res.data);
-                setMessage('ce Boitier à été mis à jour');
-            })
-            .catch(e => {
-                console.log(e);
-        })
-    }
-
-    const deleteCase = () => {
-        caseService.remove(currentCase.id)
-            .then(
-                res => {
-                    console.log(res.data)
-                    history.push('');
-                })
-            .catch(
-                e => {
-                    console.log(e);
+        PatchAPIData(endpoint, JSON.stringify(data)).then(
+            res => {
+                setCurrentCase({ ...currentCase, published: status });
+                console.log(res.data)
             }
-        )
+        ).catch(e => console.log(e)); 
+        
+        
+    }
+
+    const updateCase = () => {
+
+        const endpoint = `/Boitiers/${currentCase.id}`;
+
+        PatchAPIData(endpoint, ).then(
+            res => {
+                console.log(res.data)
+                setMessage('Ce Boitier à été mis à jour');
+            }
+        ).catch(e => console.log(e));
+    }
+    
+    const deleteCase = () => {
+
+        const endpoint = `/Boitiers/${currentCase.id}`;
+
+        DeleteAPIData(endpoint).then(
+            res => {
+                console.log(res.data)
+                history.push('')
+            }
+        ).catch(e => console.log(e));
     }
 
     return (
@@ -200,7 +206,7 @@ const Case = (props) => {
                             <label>
                                 <strong>Status:</strong>
                             </label>
-                            {currentTutorial.published ? "Published" : "Pending"}
+                            {currentCase.published ? "Published" : "Pending"}
                         </div>
                     </form>
 

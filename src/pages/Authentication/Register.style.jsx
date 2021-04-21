@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Field } from 'formik';
 
 export const RegisterWrapper = styled.div`
     font-family: 'Nunito';
@@ -11,7 +12,7 @@ export const Title = styled.h1`
     
 `;
 
-export const Field = styled.div`
+export const CustomField = styled(Field)`
     padding-top: 50px;
     font-size: 30px; 
 `;
