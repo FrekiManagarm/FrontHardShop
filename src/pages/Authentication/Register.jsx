@@ -12,14 +12,7 @@ import Store from '../../Reducer/store';
 
 const Register = () => {
 
-    const mounted = useRef(false);
-
-    useEffect(() => {
-        mounted.current = true;
-        return () => {
-            mounted.current = false    
-        }
-    }, []);
+    
 
     const initialLoginState = {
         Name: '',

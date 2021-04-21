@@ -12,7 +12,7 @@ const GetAPIData = (url) => {
     }
 
     return fetch(endpoint, settings)
-        .then(r => r.json())
+        .then(res => res.json())
         .then(data => {
             return data
         });
