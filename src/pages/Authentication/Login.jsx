@@ -1,62 +1,84 @@
-import axios from 'axios';
 import React, { useState } from 'react';
-import cookie from 'js-cookie';
+import { Formik } from 'formik'
+import * as Yup from 'yup';
 import { useHistory } from 'react-router';
-import { LoginPageWrapper } from './Login.style';
+import { CustomField, LoginPageWrapper, CustomLabel, Title, Button } from './Login.style';
+import fetchData from '../../data/fetchData';
+import Store from '../../Reducer/store';
 
 const Login = () => {
 
     const initialLoginState = {
-
+        email: '',
+        password: ''
     }
 
     const history = useHistory();
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [errors, setErrors] = useState({});
+    const [Login, setLogin] = useState(initialLoginState);
 
-    const handleForm = (e) => {
-        e.preventDefault();
-        const data = { email, password }
-        axios.post('http://loclahost:8000/api/login', data).then(
-            res => {
-                cookie.set("token", res.data.access_token);
-                
-            }
-        )
-        history.push('/');
+    const handleChangeForm = (event) => {
+        const { name, value } = event.target;
+        setLogin({ ...Login, [name]: value});
     }
 
-    const handleInput = (e) => {
-        e.preventDefault();
-        const name = e.target.name;
-        const value = e.target.value;
-        setEmail({[name]: value});
-        setPassword({[name]: value});
-        setErrors({[name]: value});
+    const initialValues = {
+        email: Login.email ?? '',
+        password: Login.password ?? ''
     }
+
+    const LegalSchema = Yup.object().shape({
+        email: Yup.string()
+            .required('Votre email est requis pour vous connecter !'),
+        password: Yup.string()
+            .required('Votre mot de passe est requis pour vous connecter !')
+    })
+
+    console.log(initialValues);
 
     return (
         <LoginPageWrapper>
+            <Title>Je me Connecte </Title>
             <div className="other">
-                <div className="another">
-                    <form className="the-form" onSubmit={handleForm}> 
-                        <div>
-                            <label>Email</label>
-                            <input type="email" name="email" placeholder="Renseignez votre email" className="first-input" onChange={handleInput()} />
-                        </div>
-                        <div style={{ marginTop: "1rem" }}>
-                            <label>Mot de passe</label>
-                            <input type="password" name="password" placeholder="Renseignez votre mot de passe" className="first-input" onChange={handleInput()} />
-                        </div>
-                        {errors ? (
-                            <p style={{ color: "red", marginTop: "10px" }}>{errors}</p>
-                        ) : (
-                            ""
+                    <Formik
+                        initialValues={initialValues}
+                        validationSchema={LegalSchema}
+                        onSubmit={async (values) => {
+                            console.log(values, 'values');
+                            const endpoint = 'api/login';
+                            console.log(JSON.stringify(values), 'values');
+
+                            const response = await fetchData(endpoint, values).then(
+                                res => {
+                                    console.log(res)
+                                    localStorage.setItem("token", res.access_token);
+                                    Store.dispatch({ type: "SET_LOGIN", payload: res.user})
+                                    history.push('/')
+                                }
+                            ).catch(e => console.log(e))
+                            console.log(response, 'response');
+                        }}
+                    >
+                        {({
+                            errors,
+                            touched,
+                            handleSubmit,
+                        }) => (
+                            <form onChange={handleChangeForm} onSubmit={handleSubmit}>
+                                <CustomLabel>Votre Email</CustomLabel>
+                                <CustomField name="email"></CustomField>
+                                <div className="form--error">{errors.email && touched.email}</div>
+
+                                <CustomLabel>Votre mot de passe</CustomLabel>
+                                <CustomField name="password" type="password"></CustomField>
+                                <div className="form--error">{errors.password && touched.password}</div>
+                                <br />
+
+                                <div>
+                                    <Button type="submit">Connexion</Button>
+                                </div>
+                            </form>
                         )}
-                        <button type="submit">Se connecter</button>
-                    </form>
-                </div>
+                    </Formik>
             </div>
         </LoginPageWrapper>
     )

@@ -1,38 +1,35 @@
-import axios from 'axios';
-import { AntInput } from '../../AntInputWithFormik';
 import { useHistory } from 'react-router-dom';
-import cookie from "js-cookie";
 import * as Yup from 'yup';
 import { Field, Formik } from 'formik';
-import React, { useRef, useState, useEffect } from 'react';
-import { Button, CustomInput, CustomLabel, RegisterWrapper, Title } from './Register.style';
-import PostAPIData from '../../post_api_data';
+import React, { useState } from 'react';
+import { Button, CustomField,  CustomInput, CustomLabel, RegisterWrapper, Title } from './Register.style';
 import Store from '../../Reducer/store';
+import fetchData from '../../data/fetchData';
 
 
 const Register = () => {
 
     
 
-    const initialLoginState = {
+    const initialRegisterState = {
         Name: '',
         email: '',
         password: '',
         password_confirmation: ''
     }
 
-    const [Login, setLogin] = useState(initialLoginState);
+    const [Register, setRegister] = useState(initialRegisterState);
 
     const initialValues = {
-        Name: Login.Name ?? '',
-        email: Login.email ?? '',
-        password: Login.password ?? '',
-        password_confirmation: Login.password_confirmation ?? ''
+        Name: Register.Name ?? '',
+        email: Register.email ?? '',
+        password: Register.password ?? '',
+        password_confirmation: Register.password_confirmation ?? ''
     }
 
     const handleChangeForm = (event) => {
         const { name, value } = event.target;
-        setLogin({ ...Login, [name]: value });
+        setRegister({ ...Register, [name]: value });
     } 
 
     const history = useHistory();
@@ -70,17 +67,16 @@ const Register = () => {
                         validationSchema={LegalSchema}
                         onSubmit={async (values) => {
                             console.log(values, 'values')
-                            const endpoint = `api/register`;
+                            const endpoint = 'api/register';
                             console.log(JSON.stringify(values), 'values');
 
 
-                            const response = await PostAPIData(endpoint, values).then(
+                            const response = await fetchData(endpoint, values).then(
                                 res => {
                                     console.log(res)
-                                    cookie.set("token", res?.access_token);
-                                    cookie.set("user", res?.user)
+                                    localStorage.setItem("token", res.access_token);
                                     Store.dispatch({ type: "SET_LOGIN", payload: res?.user })
-                                    history.push('/');
+                                    history.push('/')
                                 }
                             ).catch(e => console.log(e));
                             console.log(response, 'response');

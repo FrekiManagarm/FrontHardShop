@@ -1,17 +1,25 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router';
+
 import { useMenuContext } from '../../../state/Menu';
 import { useTheme } from "../../../hooks/useTheme";
 import Icon from '../Icon';
 import { NavLink, NavLinksWrapper } from './NavLinks.style';
-import { useSelector } from 'react-redux';
-import { resetIdCounter } from 'react-tabs';
+
 
 const DesktopNavLinks = () => {
 
+  const history = useHistory();
   const state = useSelector(state => state.auth);
   const { closeMenu } = useMenuContext();
   const [theme, toggleTheme] = useTheme();
   console.log(state);
+
+  const removeToken = () => {
+    localStorage.removeItem("token");
+    history.push('/')
+  }
 
   const renderWithLogIn = () => {
     return (
@@ -28,7 +36,12 @@ const DesktopNavLinks = () => {
           </li>
           <li key={"Profile"}>
             <NavLink to="/Profile" className="link" onClick={closeMenu}>
-              Profile
+              Profil
+            </NavLink>
+          </li>
+          <li>
+            <NavLink key={"LogOut"} className="link" onClick={removeToken}>
+              Déconnexion
             </NavLink>
           </li>
           <li>
@@ -42,7 +55,7 @@ const DesktopNavLinks = () => {
 
   const renderWithoutLogIn = () => {
     return (
-      <NavLinksWrapper>
+      <NavLinksWrapper className="nav-links">
         <li key={"Configurator"}>
             <NavLink to="/Components" className="link" onClick={closeMenu}>
               Composants
@@ -50,12 +63,12 @@ const DesktopNavLinks = () => {
           </li>
           <li key={"S'incrire"}>
             <NavLink to="/register" className="link" onClick={closeMenu}>
-              S'inscrire
+              Inscription
             </NavLink>
           </li>
           <li key={"Se connecter"}>
             <NavLink to="/login" className="link" onClick={closeMenu}>
-              Se connecter
+              Connexion
             </NavLink>
           </li>
           <li>
