@@ -10,4 +10,5 @@ export const MobileNav = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 `;

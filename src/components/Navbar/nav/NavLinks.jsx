@@ -42,7 +42,7 @@ const DesktopNavLinks = () => {
 
   const renderWithoutLogIn = () => {
     return (
-      <NavLinksWrapper>
+      <NavLinksWrapper className="nav-links">
         <li key={"Configurator"}>
             <NavLink to="/Components" className="link" onClick={closeMenu}>
               Composants
@@ -50,12 +50,12 @@ const DesktopNavLinks = () => {
           </li>
           <li key={"S'incrire"}>
             <NavLink to="/register" className="link" onClick={closeMenu}>
-              S'inscrire
+              Inscription
             </NavLink>
           </li>
           <li key={"Se connecter"}>
             <NavLink to="/login" className="link" onClick={closeMenu}>
-              Se connecter
+              Connexion
             </NavLink>
           </li>
           <li>

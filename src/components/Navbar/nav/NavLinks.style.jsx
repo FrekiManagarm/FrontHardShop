@@ -9,7 +9,8 @@ export const NavLinksWrapper = styled.ul`
   align-items: center;
   list-style: none;
   li:not(:last-child) {
-    margin-right: 26px;
+    margin-right: 40px;
+    padding-right: 10px;
   }
   li:last-child {
     margin-left: auto;

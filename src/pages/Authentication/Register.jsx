@@ -1,18 +1,16 @@
-import axios from 'axios';
-import { AntInput } from '../../AntInputWithFormik';
 import { useHistory } from 'react-router-dom';
 import cookie from "js-cookie";
 import * as Yup from 'yup';
 import { Field, Formik } from 'formik';
-import React, { useRef, useState, useEffect } from 'react';
-import { Button, CustomInput, CustomLabel, RegisterWrapper, Title } from './Register.style';
-import PostAPIData from '../../post_api_data';
+import React, { useState } from 'react';
+import { Button, CustomInput, CustomField, CustomLabel, RegisterWrapper, Title } from './Register.style';
 import Store from '../../Reducer/store';
+import fetchUserData from '../../fetchUserData';
 
 
 const Register = () => {
 
-    
+    const Cookie = cookie.get("token");
 
     const initialLoginState = {
         Name: '',
@@ -74,11 +72,12 @@ const Register = () => {
                             console.log(JSON.stringify(values), 'values');
 
 
-                            const response = await PostAPIData(endpoint, values).then(
+                            const response = await fetchUserData(endpoint, values).then(
                                 res => {
                                     console.log(res)
-                                    cookie.set("token", res?.access_token);
-                                    cookie.set("user", res?.user)
+                                    localStorage.setItem("user", res?.user)
+                                    localStorage.setItem("token", res?.access_token)
+                                    console.log(localStorage.getItem("user") && localStorage.getItem("token"))
                                     Store.dispatch({ type: "SET_LOGIN", payload: res?.user })
                                     history.push('/');
                                 }
@@ -94,19 +93,19 @@ const Register = () => {
                         }) => (
                             <form onChange={handleChangeForm} onSubmit={handleSubmit}>
                                 <CustomLabel>Votre Nom</CustomLabel>
-                                <Field name="Name"></Field>
+                                <CustomField name="Name" type="text" className="field"></CustomField>
                                 <div className="form--error">{errors.Name && touched.Name}</div>
 
                                 <CustomLabel>Email</CustomLabel>
-                                <Field name="email"></Field>
+                                <CustomField name="email" type="text" className="field"></CustomField>
                                 <div className="form--error">{errors.email && touched.email}</div>
 
                                 <CustomLabel>Mot de Passe</CustomLabel>
-                                <Field name="password" type="password"></Field>
+                                <CustomField name="password" type="password" className="field"></CustomField>
                                 <div className="form--error">{errors.password && touched.password}</div>
 
                                 <CustomLabel>Confirmation du mot de passe</CustomLabel>
-                                <Field name="password_confirmation" type="password"></Field>
+                                <CustomField name="password_confirmation" type="password" className="label"></CustomField>
                                 <div className="form--error">{errors.password_confirmation && touched.password_confirmation}</div>
                                 <br />
 
