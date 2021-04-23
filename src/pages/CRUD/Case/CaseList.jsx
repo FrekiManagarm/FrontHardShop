@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import PostAPIData from '../../../post_api_data';
+import PostAPIData from '../../../data/post_api_data';
 import { Link } from "react-router-dom";
-import GetAPIData from '../../../get_api_data';
+import GetAPIData from '../../../data/get_api_data';
 
 const CaseList = () => {
 

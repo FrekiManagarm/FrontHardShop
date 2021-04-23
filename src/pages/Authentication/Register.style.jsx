@@ -14,7 +14,7 @@ export const Title = styled.h1`
 
 export const CustomField = styled(Field)`
     padding-top: 50px;
-    font-size: 30px; 
+    font-size: 15px; 
 `;
 
 export const CustomInput = styled.input`

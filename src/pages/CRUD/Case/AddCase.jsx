@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import * as Yup from 'yup';
 import { Field, Formik } from 'formik';
-import PostAPIData from '../../../post_api_data';
+import PostAPIData from '../../../data/post_api_data';
 import { CaseCRUDWrapper } from './Case.style';
 import { Input } from 'antd';
 

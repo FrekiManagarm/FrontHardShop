@@ -1,19 +1,16 @@
-import fetch from 'isomorphic-unfetch'
-import Cookies from "js-cookie";
+import fetch from 'isomorphic-unfetch';
 
-const PostAPIData = async (endpoint, dataToSend = {}) => {
-    const token = Cookies.get("token");
+const fetchUser = async (endpoint, token) => {
     const url = `http://localhost:8000/${endpoint}`;
 
     const settings = {
-        method: "POST",
+        method: "GET",
         headers: {
             Authorization: "Bearer " + token,
             Accept: "application/json",
             "Content-Type": "application/json"
-        },
-        body: JSON.stringify(dataToSend),
-    };
+        }
+    }
 
     if (token) {
         const response = await fetch(url, settings);
@@ -26,4 +23,4 @@ const PostAPIData = async (endpoint, dataToSend = {}) => {
     }
 }
 
-export default PostAPIData
+export default fetchUser

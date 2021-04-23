@@ -1,8 +1,7 @@
-import Cookies from 'js-cookie';
 import fetch from 'isomorphic-unfetch';
 
 const PatchAPIData = async (endpoint, dataToSend = {}, stringify = true) => {
-    const token = Cookies.get('token');
+    const token = localStorage.getItem("token");
     const url = `http://localhost:8000/${endpoint}`
 
     const settings = {

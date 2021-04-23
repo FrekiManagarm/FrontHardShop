@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router';
-import DeleteAPIData from '../../../delete_api_data';
-import GetAPIData from '../../../get_api_data';
-import PatchAPIData from '../../../patch_api_data';
-import PostAPIData from '../../../post_api_data';
+import DeleteAPIData from '../../../data/delete_api_data';
+import GetAPIData from '../../../data/get_api_data';
+import PatchAPIData from '../../../data/patch_api_data';
+import PostAPIData from '../../../data/post_api_data';
 
 const Case = (props) => {
 

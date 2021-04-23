@@ -52,10 +52,16 @@ const GlobaleStyle = createGlobalStyle`
   }
 `;
 
+const RouterADMIN = () => {
+  
+}
+
+const RouterUSER = () => {
+
+}
+
 
 const App = () => {
-
-  const state = useSelector(state => state.auth);
 
   return (
     <Router>
@@ -83,12 +89,7 @@ const App = () => {
         <Route component={Step8} path="/Configurator/Step8" />
         <Route component={Step9} path="/Configurator/Step9" />
         <Route component={Final} path="/Configurator/Resume" />
-
         
-
-        <Route component={AddCase} exact path="/CRUD/addCase" />
-        <Route component={CaseList} path="/CRUD/Cases" />
-        <Route component={Case} exact path="/CRUD/Case/:id" />
         
     </Router>
   )

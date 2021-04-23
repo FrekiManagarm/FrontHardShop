@@ -9,7 +9,7 @@ import "./styles.css";
 export const Slid = () => {
     return (
         <div>
-            <Slider className="slider-wrapper" autoplay={3000}>
+            <Slider className="slider-wrapper" autoplay={5000}>
                 {content.map((item, index) => {
                     return(
                     <div
