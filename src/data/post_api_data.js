@@ -2,7 +2,7 @@ import fetch from 'isomorphic-unfetch'
 
 const PostAPIData = async (endpoint, dataToSend = {}) => {
     const token = localStorage.getItem('token');
-    const url = `http://localhost:8000/${endpoint}`;
+    const url = `http://localhost:8000/api/${endpoint}`;
 
     const settings = {
         method: "POST",

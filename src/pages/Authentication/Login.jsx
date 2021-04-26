@@ -44,7 +44,7 @@ const Login = () => {
                         validationSchema={LegalSchema}
                         onSubmit={async (values) => {
                             console.log(values, 'values');
-                            const endpoint = 'api/login';
+                            const endpoint = 'login';
                             console.log(JSON.stringify(values), 'values');
 
                             const response = await fetchData(endpoint, values).then(

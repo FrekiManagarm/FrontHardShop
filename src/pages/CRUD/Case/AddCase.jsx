@@ -3,18 +3,10 @@ import * as Yup from 'yup';
 import { Field, Formik } from 'formik';
 import PostAPIData from '../../../data/post_api_data';
 import { CaseCRUDWrapper } from './Case.style';
-import { Input } from 'antd';
 
-const AddCase = () => {
+const AddCase = ({ onClose }) => {
 
     const initialCaseState = {
-        
-    }
-
-    const [Case, setCase] = useState();
-    const [submitted, setSubmitted] = useState(false);
-
-   const initialValues = {
         image: '',
         RGB: false,
         alim_inclus: false,
@@ -25,6 +17,24 @@ const AddCase = () => {
         nom: '',
         ventilateur: '',
         published: false
+    }
+
+    const [Case, setCase] = useState(initialCaseState);
+    const [submitted, setSubmitted] = useState(false);
+    const [RGB, setRGB] = useState(false);
+    const [alim, setAlim] = useState(false);
+
+   const initialValues = {
+        image: Case.image ?? '',
+        RGB: Case.RGB ?? '',
+        alim_inclus: Case.alim_inclus ?? '',
+        couleur: Case.couleur ?? '',
+        facade_laterale: Case.facade_laterale ?? '',
+        description: Case.description ?? '',
+        format: Case.format ?? '',
+        nom: Case.nom ?? '',
+        ventilateur: Case.ventilateur ?? '',
+        published: Case.published ?? ''
    }
 
     const LegalSchema = Yup.object().shape({
@@ -50,26 +60,19 @@ const AddCase = () => {
 
     console.log(initialValues);
 
-    const newCase = () => {
-        setCase(initialCaseState);
-        setSubmitted(false);
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        setCase({ ...Case, [name]: value })
     }
 
     return (
         <CaseCRUDWrapper>
-            {submitted ? (
-                <div>
-                    <h4>Les données ont été envoyées avec succès !</h4>
-                    <button onClick={newCase}>Ajouter</button>
-                </div>
-            ) : (
-                <div>
                     <Formik
                         initialValues={initialValues}
                         validationSchema={LegalSchema}
                         onSubmit={async (values) => {
                             console.log(values, 'values')
-                            const endpoint = `/Boitier`;
+                            const endpoint = `Boitier`;
                             console.log(JSON.stringify(values), 'values')
 
                             const response = await PostAPIData(endpoint, values).then(
@@ -78,54 +81,57 @@ const AddCase = () => {
                                 console.log(e)
                             })
                             console.log(response, 'response');
+                            onClose()
                         }}
                     >
                         {({
                             errors,
                             touched,
-                            handleSubmit,
-                            handleChange
+                            handleSubmit
                         }) => (
-                            <form onChange={handleChange} onSubmit={handleSubmit}>
+                            <form onChange={handleInputChange} onSubmit={handleSubmit}>
                                 <label>Nom</label>
-                                <Field component={Input} name="nom" type="text" placeholder="Renseignez le nom" className="first-input"></Field>
+                                <Field name="nom" type="text" placeholder="Renseignez le nom" className="first-input"></Field>
                                 <div className="form--error">{errors.nom && touched.nom}</div>
 
                                 <label>Image</label>
-                                <Field></Field>
-                                <div></div>
+                                <Field name="image" placeholder="Renseignez l'image"></Field>
+                                <div>{errors.image && touched.image}</div>
 
                                 <label>Couleur</label>
-                                <Field></Field>
-                                <div></div>
+                                <Field name="couleur" type="text" placeholder="Renseignez la couleur"></Field>
+                                <div>{errors.couleur && touched.couleur}</div>
 
                                 <label>Façade Latérale</label>
-                                <Field></Field>
-                                <div></div>
+                                <Field name="facade_laterale" type="text" placeholder="Renseignez la façade latérale"></Field>
+                                <div className="form-error">{errors.facade_laterale && touched.facade_laterale}</div>
 
                                 <label>Format</label>
-                                <Field></Field>
+                                <Field name="format" type='text' placeholder="Renseignez le format"></Field>
                                 <div></div>
 
                                 <label>Ventilateur</label>
-                                <Field></Field>
-                                <div></div>
+                                <Field name="ventilateur" type="text"></Field>
+                                <div className="form--error">{errors.ventilateur && touched.ventilateur}</div>
 
                                 <label>Description</label>
-                                <Field></Field>
-                                <div></div>
+                                <Field name="description" type="text-area"></Field>
+                                <div className="form--error"> {errors.description && touched.description}</div>
 
-                                <label></label>
-                                <Field></Field>
-                                <div></div>
+                                <label>Publier</label>
+                                <Field type="checkbox" name="published"></Field>
+                                <div className="form--error">{errors.published && touched.published}</div>
+
+                                <label>RGB</label>
+                                <Field name='RGB' type="checkbox"></Field>
+                                <div className="form--error">{errors.RGB && touched.RGB}</div>
+
+                                <button type="submit">Envoyer</button>
                             </form>
                         )}
                     </Formik>
-                </div>
-                
-            )}
         </CaseCRUDWrapper>
-    )
+    ) 
 }
 
 export default AddCase

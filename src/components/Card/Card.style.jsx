@@ -2,10 +2,9 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     display: flex;
-    margin: 100px;
     flex-direction: column;
-    width: 450px;
-    height: 500px;
+    width: 350px;
+    height: 570px;
     word-wrap: break-word;
     background-color: var(--bg);
     background-clip: border-box;
@@ -13,6 +12,11 @@ export const Container = styled.div`
     border-radius: 0.25rem;
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
     overflow: hidden;
+
+    /* @media (max-width: 860px){
+        width: ; 
+        height: ;
+    } */
 `;
 
 export const Body = styled.div`
@@ -41,12 +45,20 @@ export const Image = styled.img`
 `;
 
 export const Button = styled.button`
+    -webkit-appearance: none;
+            appearance: none;
+    -webkit-filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
+            filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
+    -webkit-transition: all .5s ease;
+            filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
+    -webkit-transition: all .5s ease;
+            transition: all .5s ease;
     cursor: pointer;
     margin-top: auto;
     width: 100%;
-    color: #fff;
-    background-color: #28a745;
-    border-color: #28a745;
+    color: black;
+    background: #FDD800;
+    border-radius: 30px;
     display: block;
     font-weight: bold;
     text-align: center;
@@ -56,13 +68,13 @@ export const Button = styled.button`
     padding: 0.375rem 0.75rem;
     font-size: 1rem;
     line-height: 1.5;
-    border-radius: 0.25rem;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
         border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     
     &:hover {
-        color: #fff;
-        background-color: #218838;
-        border-color: #1e7e34;
+        color: #FFFFFF;
+        background: #222222;
+        -webkit-filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
+            filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
     }
 `;

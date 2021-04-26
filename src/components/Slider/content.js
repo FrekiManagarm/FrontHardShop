@@ -2,9 +2,9 @@ export const content = [
     {
         title: "Bienvenue sur Le HardShop !",
         description:
-          "Vous pouvez retrouver ici toutes les références en matière de Hardware ! Vous pouvez également y trouver notre configurateur",
+          "Vous pouvez retrouver ici toutes les références en matière de Hardware ! ",
         button: "Lire plus",
-        image: "https://imgur.com/VkmKzQz.jpg",
+        image: "https://i.imgur.com/q2MZEWb.jpg",
         user: "L'équipe HardShop",
         userProfile: "https://imgur.com/u7h24fM.jpg",
       },
@@ -20,7 +20,7 @@ export const content = [
       {
         title: "Les News Hardware seront bientôt là un peu de patience nous y travaillons .......",
         description:
-          "Vous retrouverez sur le site du HardShop toutes les news en lien avec le Hardware, vous êtes impatients de recevoir toutes les ",
+          "Vous retrouverez sur le site du HardShop toutes les news en lien avec le Hardware, vous êtes impatients de recevoir toutes les news !",
         button: "Buy now",
         image: "https://i.imgur.com/DvmN8Hx.jpg",
         user: "L'équipe HardShop",

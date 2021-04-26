@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
 export const ComponentsListPageWrapper = styled.div`
-    padding: 100px;
+    padding-top: 150px;
+    padding-left: 50px;
+    padding-right: 50px;
+    width: 100vw;
+   
 `;

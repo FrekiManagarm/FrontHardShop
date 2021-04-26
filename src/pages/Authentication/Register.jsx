@@ -65,7 +65,7 @@ const Register = () => {
                         validationSchema={LegalSchema}
                         onSubmit={async (values) => {
                             console.log(values, 'values')
-                            const endpoint = 'api/register';
+                            const endpoint = 'register';
                             console.log(JSON.stringify(values), 'values');
 
 

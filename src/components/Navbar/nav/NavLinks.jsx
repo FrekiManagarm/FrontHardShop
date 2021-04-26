@@ -14,11 +14,10 @@ const DesktopNavLinks = () => {
   const state = useSelector(state => state.auth);
   const { closeMenu } = useMenuContext();
   const [theme, toggleTheme] = useTheme();
-  console.log(state);
+  console.log(state.user.is_Admin);
 
   const removeToken = () => {
     localStorage.removeItem("token");
-    history.push('/')
   }
 
   const renderWithLogIn = () => {
@@ -40,7 +39,39 @@ const DesktopNavLinks = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink key={"LogOut"} className="link" onClick={removeToken}>
+            <NavLink key={"LogOut"} to="/" className="link" onClick={removeToken}>
+              Déconnexion
+            </NavLink>
+          </li>
+          <li>
+            <button onClick={toggleTheme}>
+              <Icon name={theme === "dark" ? "day" : "night"} />
+            </button>
+          </li>
+      </NavLinksWrapper>
+    )
+  }
+
+  const renderForAdmin = () => {
+    return (
+      <NavLinksWrapper className="nav-links">
+          <li key={"Configurator"}>
+            <NavLink to="/StartConfig" className="link" onClick={closeMenu}>
+              Configurator
+            </NavLink>
+          </li>
+          <li key={"Composants"}>
+            <NavLink to="/Components" className="link" onClick={closeMenu}>
+              Composants
+            </NavLink>
+          </li>
+          <li key={"admin"}>
+              <NavLink to="/admin" className="link" onClick={closeMenu}>
+                  Admin
+              </NavLink>
+          </li>
+          <li key={"Déconnexion"}>
+            <NavLink key={"LogOut"} to="/" className="link" onClick={removeToken}>
               Déconnexion
             </NavLink>
           </li>
@@ -56,7 +87,7 @@ const DesktopNavLinks = () => {
   const renderWithoutLogIn = () => {
     return (
       <NavLinksWrapper className="nav-links">
-        <li key={"Configurator"}>
+        <li key={"Components"}>
             <NavLink to="/Components" className="link" onClick={closeMenu}>
               Composants
             </NavLink>
@@ -80,11 +111,13 @@ const DesktopNavLinks = () => {
     )
   }
 
-  return ( state.loggedIn ? (
+  return ( state.user.is_Admin === 1 ? 
+    renderForAdmin()
+   : state.loggedIn ? 
     renderWithLogIn()
-  ) : (
+  : 
     renderWithoutLogIn()
-  ));
+  );
 };
 
 export default DesktopNavLinks;

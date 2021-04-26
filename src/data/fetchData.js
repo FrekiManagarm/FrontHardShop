@@ -1,7 +1,7 @@
 import fetch from 'isomorphic-unfetch'
 
 const fetchData = async (url, dataToSend = {}) => {
-    const endpoint = `http://localhost:8000/${url}`;
+    const endpoint = `http://localhost:8000/api/${url}`;
 
     const settings = {
         method: "POST",

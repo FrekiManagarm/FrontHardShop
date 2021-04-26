@@ -1,39 +1,32 @@
-import React from 'react';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import React, { useEffect, useState } from 'react';
+import { Tabs } from 'antd';
+import CoolTabs from 'react-cool-tabs';
+import { Card } from '../../components/Card/Card';
 import { ComponentsListPageWrapper } from './ComponentsList.style';
+import CaseList from '../../container/Listing/CaseList/CaseList';
+import CoolingList from '../../container/Listing/CoolingList/CoolingList';
+import GetAPIData from '../../data/get_api_data';
+import Onglet from '../../components/Onglet/Onglet';
 
 const ComponentsList = () => {
+
+    const { TabPane } = Tabs;
+
+    const [Case, setCase] = useState([]);
+
+    useEffect(() => {
+        const endpoint = 'Boitiers'
+        GetAPIData(endpoint).then(
+            res => {
+                setCase(res.data)
+                console.log(res.data)
+            }
+        )
+    }, [])
+
     return (
-        <ComponentsListPageWrapper >
-            <Tabs>
-                <TabList>
-                    <Tab>Processeur</Tab>
-                    <Tab>Carte Graphique</Tab>
-                    <Tab>SSD</Tab>
-                    <Tab>HDD</Tab>
-                    <Tab>Alimentation</Tab>
-                    <Tab>Boitier</Tab>
-                </TabList>
-
-                <TabPanel>
-                    
-                </TabPanel>
-                <TabPanel>
-
-                </TabPanel>
-                <TabPanel>
-
-                </TabPanel>
-                <TabPanel>
-
-                </TabPanel>
-                <TabPanel>
-
-                </TabPanel>
-                <TabPanel>
-                    
-                </TabPanel>
-            </Tabs>
+        <ComponentsListPageWrapper>
+            <Onglet />
         </ComponentsListPageWrapper >
     )
 }
