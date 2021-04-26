@@ -1,7 +1,16 @@
 import React, { useState } from 'react'
+import { Redirect } from 'react-router';
 import './HomeCRUD.css';
 import CaseList from './Case/CaseList';
-import { Redirect } from 'react-router';
+import CoolingList from './Cooling/CoolingList';
+import SSDList from './SSD/SSDList';
+import HDDList from './HDD/HDDList';
+import PSUList from './PSU/PSUList';
+import MotherBoardList from './MotherBoard/MotherBoardList';
+import RAMList from './RAM/RAMList';
+import CPUList from './CPU/CPUList';
+import GPUList from './GPU/GPUList';
+
 
 const CRUD = () => {
 
@@ -66,35 +75,35 @@ const CRUD = () => {
                             </div>
                         : stateOnglets === 2 ?
                             <div className="contenu">
-                                
+                                <CoolingList />
                             </div>
                         : stateOnglets === 3 ?
                             <div className="contenu">
-                                
+                                <CPUList />
                             </div>
                         : stateOnglets === 4 ?
                             <div className="contenu">
-
+                                <GPUList />
                             </div>
                         : stateOnglets === 5 ? 
                             <div className="contenu">
-
+                                <HDDList />
                             </div>
                         : stateOnglets === 6 ?
                             <div className="contenu">
-
+                                <SSDList />
                             </div>
                         : stateOnglets === 7 ?
                             <div className="contenu">
-
+                                <MotherBoardList />
                             </div>
                         : stateOnglets === 8 ?
                             <div className="contenu">
-
+                                <RAMList />
                             </div>
                         : stateOnglets === 9 ? 
                             <div className="contenu">
-
+                                <PSUList />
                             </div>
                         : null
                         }

@@ -1,183 +1,133 @@
 import React, { useState } from 'react';
-import mbService from '../../../services/mbService';
-import { Container, CustomInput, CustomLabel, MotherBoardCRUDWrapper } from './MotherBoard.style';
+import * as Yup from 'yup'
+import PostAPIData from '../../../data/post_api_data';
+import { Field, Formik } from 'formik'
+import { CaseCRUDWrapper } from '../Case/Case.style';
 
-const AddMotherBoard = () => {
+const AddMotherBoard = ({ onClose }) => {
 
     const initialMBState = {
-        id: null,
         image: '',
         chipset: '',
         constructeur: '',
         format: '',
+        fréquence_mémoire: '',
         description: '',
         nom: '',
         proco_compatible: '',
         socket: ''
     }
 
-    const [motherBoard, setMotherBoard] = useState(initialMBState);
+    const [MB, setMB] = useState(initialMBState);
     const [submitted, setSubmitted] = useState(false);
 
-    const handleInputChange = event => {
+    const initialValues = {
+        image: MB.image ?? '',
+        chipset: MB.chipset ?? '',
+        constructeur: MB.constructeur ?? '',
+        format: MB.format ?? '',
+        fréquence_mémoire: MB.fréquence_mémoire ?? '',
+        description: MB.description ?? '',
+        nom: MB.nom ?? '',
+        proco_compatible: MB.proco_compatible ?? '',
+        socket: MB.socket ?? '',
+    }
+
+    const LegalSchema = Yup.object().shape({
+        image: Yup.string()
+            .required("Ce champ est requis !"),
+        chipset: Yup.string()
+            .required('Ce champ est requis !'),
+        constructeur: Yup.string()
+            .required('Ce champ est requis !'),
+        format: Yup.string()
+            .required('Ce champ est requis !'),
+        fréquence_mémoire: Yup.string()
+            .required('Ce champ est requis !'),
+        description: Yup.string()
+            .required('Ce champ est requis !'),
+        nom: Yup.string()
+            .required('Ce champ est requis !'),
+        proco_compatible: Yup.string()
+            .required('Ce champ est requis !'),
+        socket: Yup.string()
+            .required('Ce champ est requis !'),
+    })
+
+    console.log(initialValues);
+
+    const handleInputChange = (event) => {
         const { name, value } = event.target;
-        setMotherBoard({ ...motherBoard, [name]: value });
-    }
-
-    const saveMotherBoard = () => {
-        let data = {
-            image: motherBoard.image,
-            chipset: motherBoard.chipset,
-            constructeur: motherBoard.constructeur,
-            format: motherBoard.format,
-            description: motherBoard.description,
-            nom: motherBoard.nom,
-            proco_compatible: motherBoard.proco_compatible,
-            socket: motherBoard.socket
-        }
-
-        mbService.create(data)
-            .then(res => {
-                setMotherBoard({
-                    id: res.data.id,
-                    image: res.data.image,
-                    chipset: res.data.chipset,
-                    constructeur: res.data.constructeur,
-                    format: res.data.format,
-                    description: res.data.description,
-                    nom: res.data.nom,
-                    proco_compatible: res.data.proco_compatible,
-                    socket: res.data.socket
-                })
-                setSubmitted(true);
-                console.log(res.data);
-            })
-            .catch(e => {
-                console.log(e);
-        });
-    }
-
-    const newMotherBoard = () => {
-        setMotherBoard(initialMBState);
-        setSubmitted(false);
+        setMB({ ...MB, [name]: value })
     }
 
     return (
-        <MotherBoardCRUDWrapper>
-            {submitted ? (
-                <div>
-                    <h4>Les données ont été envoyées avec succès !</h4>
-                    <button onClick={newMotherBoard}>Ajouter</button>
-                </div>
-            ) : (
-                <div>
-                    <form method="POST">
-                        <Container className="form-group">
-                            <CustomLabel htmlFor="nom">Nom</CustomLabel>
-                            <CustomInput
-                                type="text"
-                                className="form-control"
-                                id="nom"
-                                required
-                                value={motherBoard.nom}
-                                onChange={handleInputChange}
-                                name="nom"
-                            />
-                        </Container>
+        <CaseCRUDWrapper>
+                    <Formik
+                        initialValues={initialValues}
+                        validationSchema={LegalSchema}
+                        onSubmit={async (values) => {
+                            console.log(values, 'values')
+                            const endpoint = `CarteMere`;
+                            console.log(JSON.stringify(values), 'values')
 
-                        <Container className="form-group">
-                            <CustomLabel htmlFor="image">Image</CustomLabel>
-                            <CustomInput
-                                type="text"
-                                className="form-control"
-                                id="image"
-                                required
-                                value={motherBoard.image}
-                                onChange={handleInputChange}
-                                name="image"
-                            />
-                        </Container>
+                            const response = await PostAPIData(endpoint, values).then(
+                                setSubmitted(true)
+                            ).catch(e => {
+                                console.log(e)
+                            })
+                            console.log(response, 'response');
+                            onClose()
+                        }}
+                    >
+                        {({
+                            errors,
+                            touched,
+                            handleSubmit
+                        }) => (
+                            <form onChange={handleInputChange} onSubmit={handleSubmit}>
+                                <label>Image</label>
+                                <Field name="image" type="text" placeholder="Renseignez l'image" className="first-input"></Field>
+                                <div className="form--error">{errors.image && touched.image}</div>
 
-                        <Container className="form-group">
-                            <CustomLabel htmlFor="chipset">Chipset</CustomLabel>
-                            <CustomInput 
-                                type="text"
-                                className="form-control"
-                                id="chipset"
-                                required
-                                value={motherBoard.chipset}
-                                onChange={handleInputChange}
-                                name="chipset"
-                            />
-                        </Container>
+                                <label>Chipset</label>
+                                <Field name="chipset" placeholder="Renseignez le chipset"></Field>
+                                <div>{errors.chipset && touched.chipset}</div>
 
-                        <Container className="form-group">
-                            <CustomLabel htmlFor="constructeur">Constructeur</CustomLabel>
-                            <CustomInput
-                                type="text"
-                                className="form-control"
-                                id="constructeur"
-                                required
-                                value={motherBoard.constructeur}
-                                onChange={handleInputChange}
-                                name="constructeur"
-                            />
-                        </Container>
+                                <label>Constructeur</label>
+                                <Field name="constructeur" type="text" placeholder="Renseignez le constructeur"></Field>
+                                <div>{errors.constructeur && touched.constructeur}</div>
 
-                        <Container className="form-group">
-                            <CustomLabel htmlFor="format">Format</CustomLabel>
-                            <CustomInput 
-                                type="text"
-                                className="form-control"
-                                id="format"
-                                required
-                                value={motherBoard.format}
-                                onChange={handleInputChange}
-                                name="format"
-                            />
-                        </Container>
+                                <label>Format</label>
+                                <Field name="format" type="text" placeholder="Renseignez le format"></Field>
+                                <div>{errors.format && touched.format}</div>
 
-                        <Container className="form-group">
-                            <CustomLabel htmlFor="proco_compatible">Processeur Compatible</CustomLabel>
-                            <CustomInput 
-                                type="text"
-                                className="form-control"
-                                id="proco_compatible"
-                                required
-                                value={motherBoard.proco_compatible}
-                                onChange={handleInputChange}
-                                name="proco_compatible"
-                            />
-                        </Container>
+                                <label>Fréquence Mémoire</label>
+                                <Field name="fréquence_mémoire" type='text' placeholder="Renseignez la fréquence de la mémoire"></Field>
+                                <div>{errors.format && touched.format}</div>
 
-                        <Container className="form-group">
-                            <CustomLabel htmlFor="socket">Socket</CustomLabel>
-                            <CustomInput 
-                                type="text"
-                                className="form-control"
-                                id="socket"
-                                value={motherBoard.socket}
-                                onChange={handleInputChange}
-                                name="socket"
-                            />
-                        </Container>
+                                <label>Description</label>
+                                <Field name="description" type="text"></Field>
+                                <div className="form--error">{errors.description && touched.description}</div>
 
-                        <Container className="form-group">
-                            <CustomLabel htmlFor="description">Description</CustomLabel>
-                            <textarea 
-                                placeholder="Description"
-                                className="form-control"
-                                id="description"
-                                value={motherBoard.description}
-                                onChange={handleInputChange}
-                                name="description"
-                            />
-                        </Container>
-                    </form>
-                </div>
-            )}
-        </MotherBoardCRUDWrapper>
-    )
+                                <label>Nom</label>
+                                <Field name="nom" type="text"></Field>
+                                <div className="form--error"> {errors.nom && touched.nom}</div>
+
+                                <label>Proco Compa</label>
+                                <Field type="text" name="proco_compatible"></Field>
+                                <div className="form--error">{errors.proco_compatible && touched.proco_compatible}</div>
+
+                                <label>Socket</label>
+                                <Field name='socket' type="text"></Field>
+                                <div className="form--error">{errors.socket && touched.socket}</div>
+
+                                <button type="submit">Envoyer</button>
+                            </form>
+                        )}
+                    </Formik>
+        </CaseCRUDWrapper>
+    ) 
 }
 
-export default AddMotherBoard;
+export default AddMotherBoard

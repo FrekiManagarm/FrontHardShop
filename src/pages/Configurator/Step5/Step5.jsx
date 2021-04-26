@@ -3,45 +3,44 @@ import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
+import { Card } from '../../../components/Card/Card';
+import GetAPIData from '../../../data/get_api_data';
 import { chooseGPU } from '../rootSlice';
-import { CustomForm, Step5PageWrapper } from './Step5.style';
+import { ComponentsListWrapper, CustomForm, Step5PageWrapper } from './Step5.style';
 
 const Step5 = () => {
 
-    const [ gpu, setGpu ] = useState([])
+    const [GPU, setGPU] = useState([])
     const dispatch = useDispatch();
     const history = useHistory();
-    const GPU = useSelector(state => state.GPU);
-    const { register, handleSubmit } = useForm({
-        defaultValues: { GPU }
-    })
+    const Gpu = useSelector(state => state.GPU);
 
-    useEffect(async () => {
-        const result = await axios.get('');
-        setGpu(result.data);
-    })
-
-    const choice = (data) => {
-        dispatch(chooseGPU(data.GPU));
-        history.push('/Configurator/Step6');
-    }
+    useEffect(() => {
+        const endpoint = 'GPUs'
+        GetAPIData(endpoint).then(
+            res => {
+                setGPU(res.data)
+            }
+        )
+    }, [])
 
     return (
         <Step5PageWrapper>
-            <CustomForm onSubmit={handleSubmit(choice)}>
-                <label htmlFor="GPU">Choisissez votre Carte Graphique : </label>
-                <select id="GPU" name="GPU" ref={register}>
-                    <option value="MSI">MSI</option>
-                    <option value="Gigabyte">Gigabyte</option>
-                    <option value="EVGA">EVGA</option>
-                    <option value="Gainward">Gainward</option>
-                    <option value="Asus">Asus</option>
-                    <option value="KFA2">KFA2</option>
-                    <option value="Zotac">Zotac</option>
-                    <option value="Palit">Palit</option>
-                </select>
-                <button>SSD</button>
-            </CustomForm>
+            <ComponentsListWrapper>
+                {GPU.map(gpu => 
+                    <Card>
+                        <Card.Image src={gpu.image} />
+                        <Card.Body>
+                            <Card.Title> {gpu.nom} </Card.Title>
+                            <Card.Text> {gpu.description} </Card.Text>
+                            <Card.Button onClick={() => {
+                                dispatch(chooseGPU(gpu))
+                                history.push('/Configurator')
+                            }} >Choisir</Card.Button>
+                        </Card.Body>
+                    </Card>    
+                )}
+            </ComponentsListWrapper>
         </Step5PageWrapper>
     )
 }

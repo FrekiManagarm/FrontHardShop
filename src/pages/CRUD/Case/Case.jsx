@@ -21,6 +21,12 @@ const UpdateCase = ({ state, onClose }) => {
 
     const history = useHistory();
     const [currentCase, setCurrentCase] = useState(initialCaseState);
+
+    const { image, RGB, alim_inclus, couleur, facade_laterale, description, format, nom, ventilateur, published} = state;
+
+    const initialValues = {
+        
+    }
     
     return (
         <UpdateCaseWrapper>

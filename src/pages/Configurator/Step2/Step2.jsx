@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import GetAPIData from '../../../data/get_api_data';
 import { chooseMotherBoard } from '../rootSlice';
-import { ComponentsListWrapper, Step2PageWrapper } from './Step2.style'
+import { ComponentsListWrapper, Step2PageWrapper, Title } from './Step2.style'
 
 const Step2 = () => {
 
@@ -44,6 +44,9 @@ const Step2 = () => {
 
     return(
         <Step2PageWrapper>
+            <Title>Etape 2/9 : la Carte Mère</Title>
+            <p style={{ paddingTop: "12px" }}>Cette dernière vous permettra de choisir le format de votre Boitier</p>
+            <p style={{ paddingTop: "12px" }}>Elle permet aussi d'assurer la liaison entre chaque Composant ainsi que leur coordination</p>
             {state.CPU?.type === 'Intel' ? 
                 <ComponentsListWrapper>
                     {MBIntels.map(MBIntel => 

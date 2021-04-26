@@ -3,50 +3,79 @@ import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
+import { Card } from '../../../components/Card/Card';
+import GetAPIData from '../../../data/get_api_data';
 import { chooseCase } from '../rootSlice';
-import { CustomForm, Step9PageWrapper } from './Step9.style'
+import { ComponentsListWrapper, CustomForm, Step9PageWrapper, Title } from './Step9.style'
 
 const Step9 = () => {
 
-    const [Case, setCase] = useState([]);
+    const [CaseATX, setCaseATX] = useState([]);
+    const [CaseMini, setCaseMini] = useState();
     const dispatch = useDispatch();
     const history = useHistory();
+    const state = useSelector(state => state.config)
     const Boitier = useSelector(state => state.Case);
     const { register, handleSubmit } = useForm({
         defaultValues: { Boitier }
     });
 
-    useEffect(async () => {
-        const { data } = await axios.get('');
-        setCase(data);
+    useEffect(() => {
+        const endpoint = 'MiniTour'
+        GetAPIData(endpoint).then(
+            res => {
+                setCaseMini(res.data)
+            }
+        );
     })
 
-    const onSubmit = (data) => {
-        dispatch(chooseCase(data.Case));
-        history.push('/Configurator/Resume')
-    }
+    useEffect( () => {
+        const endpoint = 'MoyenTour'
+        GetAPIData(endpoint).then(
+            res => {
+                setCaseATX(res.data)
+            }
+        )
+    }, [])
 
     return (
         <Step9PageWrapper>
-            <CustomForm onSubmit={handleSubmit(onSubmit)}>
-                <label htmlFor="Case">Choisissez votre Boîtier, attention aux dimensions ! : </label>
-                <select id="Case" name="Case" >
-                    <option value="NZXT">NZXT</option>
-                    <option value="ThermalTake">ThermalTake</option>
-                    <option value="MSI">MSI</option>
-                    <option value="AORUS">AORUS</option>
-                    <option value="Cooler Master">Cooler Master</option>
-                    <option value="Corsair">Corsair</option>
-                    <option value="DeepCool">DeepCool</option>
-                    <option value="Gigabyte">Gigabyte</option>
-                    <option value="IN WIN">IN WIN</option>
-                    <option value="Lian Li">Lian Li</option>
-                    <option value="Phanteks">Phanteks</option>
-                    <option value="Spirit of Gamer">Spirit of Gamer</option>
-                    <option value="Zalman">Zalman</option>
-                </select>
-                <button>Voir ma Config</button>
-            </CustomForm>
+            <Title>Etape 9/9 : </Title>
+            <p></p>
+            <p></p>
+            {state.MotherBoard?.format === "ATX" ? 
+                <ComponentsListWrapper>
+                    {CaseATX && CaseATX.map(boitier => 
+                        <Card>
+                            <Card.Image />
+                            <Card.Body>
+                                <Card.Title>{boitier.nom} </Card.Title>
+                                <Card.Text>{boitier.description}</Card.Text>
+                                <Card.Button onClick={() => {
+                                    dispatch(chooseCase(boitier))
+                                    history.push('/Configurator/Resume')
+                                }}>Choisir</Card.Button>
+                            </Card.Body>
+                        </Card>
+                    )}
+                </ComponentsListWrapper>
+            : 
+                <ComponentsListWrapper>
+                    {CaseMini & CaseMini.map(casemini => 
+                        <Card>
+                            <Card.Image />
+                            <Card.Body>
+                                <Card.Title>{casemini.nom}</Card.Title>
+                                <Card.Text>{casemini.description}</Card.Text>
+                                <Card.Button onClick={() => {
+                                    dispatch(chooseCase(casemini))
+                                    history.push('/Configurator/Resume')
+                                }}></Card.Button>
+                            </Card.Body>
+                        </Card>
+                    )}
+                </ComponentsListWrapper>
+            }
         </Step9PageWrapper>
     )
 }

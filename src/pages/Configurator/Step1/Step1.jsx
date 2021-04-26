@@ -7,7 +7,7 @@ import { Redirect, useHistory } from 'react-router-dom';
 // --------------------------------------------------------------
 
 import { chooseCPU } from '../rootSlice';
-import { ComponentsListWrapper, Step1PageWrapper } from './Step1.style'; 
+import { ComponentsListWrapper, Step1PageWrapper, Title } from './Step1.style'; 
 import { Card } from '../../../components/Card/Card';
 import GetAPIData from '../../../data/get_api_data';
 
@@ -37,8 +37,10 @@ const Step1 = () => {
 
     return (
         <Step1PageWrapper>
+            <Title style={{ paddingTop: "100px"}} >Etape 1/9 : Le processeur</Title>
+                <p style={{ paddingTop: "12px" }}>Celui-ci va déterminer quelle utilisation vous faites de votre machine, le "Processeur" est le "Cerveau" du PC</p>
+                <p style={{ paddingTop: "12px" }}>Etes vous plutôt Multi-tâches ou Jeux ?</p>
             {token ? 
-                
                 <ComponentsListWrapper>
                     {cpus && cpus.map(cpu => 
                         <Card>

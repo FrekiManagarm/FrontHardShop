@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Cooling = () => {
+const UpdateCooling = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const Cooling = () => {
     )
 }
 
-export default Cooling
+export default UpdateCooling

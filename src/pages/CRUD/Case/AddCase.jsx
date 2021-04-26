@@ -16,7 +16,6 @@ const AddCase = ({ onClose }) => {
         format: '',
         nom: '',
         ventilateur: '',
-        published: false
     }
 
     const [Case, setCase] = useState(initialCaseState);
@@ -33,8 +32,7 @@ const AddCase = ({ onClose }) => {
         description: Case.description ?? '',
         format: Case.format ?? '',
         nom: Case.nom ?? '',
-        ventilateur: Case.ventilateur ?? '',
-        published: Case.published ?? ''
+        ventilateur: Case.ventilateur ?? ''
    }
 
     const LegalSchema = Yup.object().shape({
@@ -108,7 +106,7 @@ const AddCase = ({ onClose }) => {
 
                                 <label>Format</label>
                                 <Field name="format" type='text' placeholder="Renseignez le format"></Field>
-                                <div></div>
+                                <div>{errors.format && touched.format} </div>
 
                                 <label>Ventilateur</label>
                                 <Field name="ventilateur" type="text"></Field>
@@ -118,13 +116,13 @@ const AddCase = ({ onClose }) => {
                                 <Field name="description" type="text-area"></Field>
                                 <div className="form--error"> {errors.description && touched.description}</div>
 
-                                <label>Publier</label>
-                                <Field type="checkbox" name="published"></Field>
-                                <div className="form--error">{errors.published && touched.published}</div>
-
                                 <label>RGB</label>
                                 <Field name='RGB' type="checkbox"></Field>
                                 <div className="form--error">{errors.RGB && touched.RGB}</div>
+
+                                <label>Alim Inclus</label>
+                                <Field type="checkbox" name="alim_inclus"></Field>
+                                <div>{errors.alim_inclus && touched.alim_inclus}</div>
 
                                 <button type="submit">Envoyer</button>
                             </form>

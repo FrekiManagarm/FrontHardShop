@@ -74,10 +74,7 @@ const AddCPU = ({ onClose }) => {
             .required('Cette option est requise !'),
     })
 
-    const newCPU = () => {
-        setCPU(initialCPUState);
-        setSubmitted(false);
-    }
+    console.log(initialValues);
     
 
     return (
@@ -99,7 +96,66 @@ const AddCPU = ({ onClose }) => {
                     onClose()
                 }}
             >
+                {({
+                    errors,
+                    touched,
+                    handleSubmit
+                }) => (
+                    <form onChange={handleInputChange} onSubmit={handleSubmit}>
+                        <label>Nom</label>
+                        <Field name="nom" type="text" placeholder="Renseignez le nom" className="first-input"></Field>
+                        <div className="form--error">{errors.nom && touched.nom}</div>
 
+                        <label>Image</label>
+                        <Field name="image" type='text' placeholder="Renseignez l'image"></Field>
+                        <div>{errors.image && touched.image}</div>
+
+                        <label>Architecture</label>
+                        <Field name="architecture" type="text" placeholder="Renseignez l'architecture"></Field>
+
+                        <label>Cache</label>
+                        <Field name="cache" type="text" placeholder="Renseignez le cache"></Field>
+                        <div>{errors.couleur && touched.couleur}</div>
+
+                        <label>Socket</label>
+                        <Field name="socket" type="text" ></Field>
+                        <div>{errors.socket && touched.socket}</div>
+
+                        <label>Chipset</label>
+                        <Field name="chipset" type="text" placeholder="Renseignez le chipset"></Field>
+                        <div className="form-error">{errors.facade_laterale && touched.facade_laterale}</div>
+
+                        <label>Chipset graphique</label>
+                        <Field name="chipset_graphique" type='text' placeholder="Renseignez le chipset graphique"></Field>
+                        <div className="form--error">{errors.matériaux && touched.matériaux}</div>
+
+                        <label>Fréquence</label>
+                        <Field name="frequence" type="text" placeholder="Renseignez la fréquence"></Field>
+                        <div className="form--error">{errors.type && touched.type}</div>
+
+                        <label>Fréquence Boost</label>
+                        <Field name="frequence_boost" type="text" placeholder="Renseignez la fréquence boost"></Field>
+                        <div className="form--error">{errors.frequence_boost && touched.frequence_boost}</div>
+
+                        <label>Coeurs </label>
+                        <Field name="nb_coeur" type="number"></Field>
+                        <div className="form--error">{errors.description && touched.description}</div>
+
+                        <label>Threads</label>
+                        <Field name="nb_threads" type="number"></Field>
+                        <div className="form--error">{errors.description && touched.description}</div>
+
+                        <label>Description</label>
+                        <Field type="text" name='description'></Field>
+                        <div>{errors.description && touched.description} </div>
+
+                        <label>Type</label>
+                        <Field name="type" type="text"></Field>
+                        <div> {errors.type && touched.type} </div>
+
+                        <button type="submit">Envoyer</button>
+                    </form>
+                )}
             </Formik>
         </CPUCRUDWrapper>
     )

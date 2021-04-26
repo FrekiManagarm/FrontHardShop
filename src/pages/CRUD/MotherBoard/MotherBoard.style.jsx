@@ -1,17 +1,49 @@
 import styled from 'styled-components';
 
 export const MotherBoardCRUDWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+
+export const InputWrapper = styled.ul`
+    display: flex;
+    flex-direction: column;
+`;
+
+export const CustomSticky = styled.div`
+    z-index: 0;
+    border-radius: 12px;
+`;
+
+export const Title = styled.h1`
+    font-family: 'Nunito';
+    font-size: 40px;
+`;
+
+export const Item = styled.li`
+    padding-top: 20px;
+    font-family: 'Nunito';
+    cursor: pointer;
+
+    .active {
+        color: red;
+    }
+`;
+
+export const ItemList = styled.ul`
+
+`;
+
+export const Button = styled.button`
     
 `;
 
-export const Container = styled.div`
-
-`;
-
-export const CustomLabel = styled.label`
-
-`;
-
-export const CustomInput = styled.input`
-    
+export const MiniCardWrapper = styled.div`
+    width: 400px;
+    height: 450px;
+    font-family: 'Nunito';
+    padding: 40px;
+    color: black;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `;

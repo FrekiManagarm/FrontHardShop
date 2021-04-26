@@ -1,5 +1,6 @@
 import React from 'react'
 import AddCooling from '../../pages/CRUD/Cooling/AddCooling';
+import UpdateCooling from '../../pages/CRUD/Cooling/Cooling';
 import { Overlay, Wrapper } from './Modale.style';
 
 const ModaleCooling = ({revele, cache}) => revele ? (
@@ -16,7 +17,7 @@ const ModaleCooling = ({revele, cache}) => revele ? (
     </React.Fragment>
 ) : null
 
-export const MdoaleUpdate = ({ revele, cache }) => revele ? (
+export const ModaleUpdateCooling = ({ revele, cache, state }) => revele ? (
     <React.Fragment>
         <Overlay />
 
@@ -24,7 +25,7 @@ export const MdoaleUpdate = ({ revele, cache }) => revele ? (
             <button type='button' onClick={cache}>
                 &times;
             </button>
-            
+            <UpdateCooling onClose={cache} state={state} />
         </Wrapper>
     </React.Fragment>
 ) : null

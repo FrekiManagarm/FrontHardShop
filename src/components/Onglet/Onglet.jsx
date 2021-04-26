@@ -3,6 +3,11 @@ import { CSSAnimationGroup } from 'react-css-animation-group';
 import CaseList from '../../container/Listing/CaseList/CaseList';
 import CoolingList from '../../container/Listing/CoolingList/CoolingList';
 import CPUList from '../../container/Listing/CPUList/CPUList';
+import GPUList from '../../container/Listing/GPUList/GPUList';
+import HDDList from '../../container/Listing/HDDList/HDDList';
+import MotherBoardList from '../../container/Listing/MotherBoardList/MotherBoardList';
+import RAMList from '../../container/Listing/RAMList/RAMList';
+import SSDList from '../../container/Listing/SSDList/SSDList';
 import './Onglet.css';
 
 const Onglet = () => {
@@ -74,23 +79,23 @@ const Onglet = () => {
                     </div>
                 : stateOnglets === 4 ?
                     <div className="contenu">
-
+                        <GPUList />
                     </div>
                 : stateOnglets === 5 ? 
                     <div className="contenu">
-
+                        <HDDList />
                     </div>
                 : stateOnglets === 6 ?
                     <div className="contenu">
-
+                        <SSDList />
                     </div>
                 : stateOnglets === 7 ?
                     <div className="contenu">
-
+                        <MotherBoardList />
                     </div>
                 : stateOnglets === 8 ?
                     <div className="contenu">
-
+                        <RAMList />
                     </div>
                 : stateOnglets === 9 ? 
                     <div className="contenu">

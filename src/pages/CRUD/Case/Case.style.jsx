@@ -11,6 +11,10 @@ export const InputWrapper = styled.ul`
     flex-direction: column;
 `;
 
+export const UpdateCaseWrapper = styled.div`
+
+`;
+
 export const CustomSticky = styled.div`
     z-index: 0;
     border-radius: 12px;
@@ -29,10 +33,6 @@ export const Item = styled.li`
     .active {
 
     }
-`;
-
-export const UpdateCaseWrapper = styled.div`
-
 `;
 
 export const ItemList = styled.ul`

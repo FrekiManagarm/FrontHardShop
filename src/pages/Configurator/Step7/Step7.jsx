@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import { chooseHDD } from '../rootSlice';
-import { CustomForm, Step7PageWrapper } from './Step7.style'
+import { ComponentsListWrapper, CustomForm, Step7PageWrapper } from './Step7.style'
 
 const Step7 = () => {
 
@@ -29,19 +29,9 @@ const Step7 = () => {
 
     return (
         <Step7PageWrapper>
-            <CustomForm onSubmit={handleSubmit(onSubmit)}>
-                <label htmlFor="HDD">Choisissez votre Disque Dur : </label>
-                <select id="HDD" name="HDD" ref={register}>
-                    <option value="Crucial">Crucial</option>
-                    <option value="Samsung">Seagate</option>
-                    <option value="Western Digital">Western Digital</option>
-                    <option value="Fujitsu">Fujitsu</option>
-                    <option value="Toshiba">Toshiba</option>
-                    <option value="Lenovo">Lenovo</option>
-                    <option value="Dell">Dell</option>
-                </select>
-                <button>Alimentation</button>
-            </CustomForm>
+            <ComponentsListWrapper>
+                
+            </ComponentsListWrapper>
         </Step7PageWrapper>
     )
 }
