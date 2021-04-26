@@ -8,7 +8,9 @@ const Final = () => {
 
     const state = useSelector(state => state);
     console.log(state);
-    const token = localStorage.getItem("token")
+    const CPU = useSelector(state => state.config.CPU)
+    const GPU = useSelector(state => state.config.GPU)
+    const token = localStorage.getItem("token");
 
     return (
         <FinalPageWrapper>
