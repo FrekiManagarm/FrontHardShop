@@ -34,6 +34,7 @@ const Step9 = () => {
         GetAPIData(endpoint).then(
             res => {
                 setCaseATX(res.data)
+                console.log(res.data)
             }
         )
     }, [])

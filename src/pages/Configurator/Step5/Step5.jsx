@@ -35,7 +35,7 @@ const Step5 = () => {
                             <Card.Text> {gpu.description} </Card.Text>
                             <Card.Button onClick={() => {
                                 dispatch(chooseGPU(gpu))
-                                history.push('/Configurator')
+                                history.push('/Configurator/Step6')
                             }} >Choisir</Card.Button>
                         </Card.Body>
                     </Card>    
