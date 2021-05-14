@@ -39,7 +39,7 @@ const Step6 = () => {
         <Step6PageWrapper>
             <Title>Etape 6/9: Le Disque SSD</Title>
             <p style={{ paddingTop: "12px" }}>Le SSD ou Solid State Drive est un moyen de stockage pour les données bien plus rapide que Disque Dur classique</p>
-            <p style={{ paddingTop: "12px" }}></p>
+            <p style={{ paddingTop: "12px" }}>Il est utile dans le cas où, vos logiciels ou jeux ont besoin des ressources stockéées le plus rapidement possible</p>
             <ComponentsListWrapper>
                 {SSD && SSD.map(ssd => 
                     <Card>

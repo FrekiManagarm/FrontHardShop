@@ -33,8 +33,8 @@ const Step7 = () => {
     return (
         <Step7PageWrapper>
             <Title>Etape 7/9 : le Disque Dur</Title>
-            <p style={{paddingTop: "12px"}}></p>
-            <p style={{paddingTop: "12px"}}></p>
+            <p style={{paddingTop: "12px"}}>Le Disque Dur fait également partie intégrante des éléments essentiels d'une configuration</p>
+            <p style={{paddingTop: "12px"}}>Attention ! Pensez à prendre au dessus de 1 To, un disque dur est vite rempli !</p>
             <ComponentsListWrapper>
                 {HDD && HDD.map(hdd => 
                     <Card>

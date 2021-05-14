@@ -6,7 +6,7 @@ import { useHistory } from 'react-router';
 import { Card } from '../../../components/Card/Card';
 import GetAPIData from '../../../data/get_api_data';
 import { chooseGPU } from '../rootSlice';
-import { ComponentsListWrapper, CustomForm, Step5PageWrapper } from './Step5.style';
+import { ComponentsListWrapper, CustomForm, Step5PageWrapper, Title } from './Step5.style';
 
 const Step5 = () => {
 
@@ -26,6 +26,9 @@ const Step5 = () => {
 
     return (
         <Step5PageWrapper>
+            <Title>Etape 5/9 : La Carte Graphique</Title>
+            <p style={{ paddingTop: "12px" }}>La Carte Graphique est l'un des éléments dont votre PC peut se passer</p>
+            <p style={{ paddingTop: "12px" }}>Seulement, si vous souhaitez faire du jeu ou des tâches lourdes comme le montage vidéo il est conseillé d'en mettre une !</p>
             <ComponentsListWrapper>
                 {GPU.map(gpu => 
                     <Card>

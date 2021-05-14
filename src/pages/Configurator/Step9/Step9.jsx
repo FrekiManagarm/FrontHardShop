@@ -42,13 +42,13 @@ const Step9 = () => {
     return (
         <Step9PageWrapper>
             <Title>Etape 9/9 : </Title>
-            <p></p>
-            <p></p>
+            <p style={{ paddingTop: "12px" }}>En Deuxième étape vous avez choisi votre Carte Mère et son format à donc déterminé le format de votre boitier</p>
+            <p style={{ paddingTop: "12px" }}>Le Boitier est un élément essentiel du PC.<br /> Il permet d'isoler la configuration de tout évènement extérieur, mais participe aussi à l'isolation phonique de celle-ci.</p>
             {state.MotherBoard?.format === "ATX" ? 
                 <ComponentsListWrapper>
                     {CaseATX && CaseATX.map(boitier => 
                         <Card>
-                            <Card.Image />
+                            <Card.Image src={boitier.image} />
                             <Card.Body>
                                 <Card.Title>{boitier.nom} </Card.Title>
                                 <Card.Text>{boitier.description}</Card.Text>
@@ -64,7 +64,7 @@ const Step9 = () => {
                 <ComponentsListWrapper>
                     {CaseMini & CaseMini.map(casemini => 
                         <Card>
-                            <Card.Image />
+                            <Card.Image src={casemini.image} />
                             <Card.Body>
                                 <Card.Title>{casemini.nom}</Card.Title>
                                 <Card.Text>{casemini.description}</Card.Text>

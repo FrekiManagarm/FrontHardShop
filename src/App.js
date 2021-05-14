@@ -20,6 +20,7 @@ import Register from './pages/Authentication/Register';
 import Step8 from './pages/Configurator/Step8/Step8';
 import Step9 from './pages/Configurator/Step9/Step9';
 import Final from './pages/Configurator/Final/Final';
+import AccountSettings from './container/AccountSettings/AccountSettings';
 import AddCase from './pages/CRUD/Case/AddCase';
 import Case from './pages/CRUD/Case/Case';
 import CaseList from './pages/CRUD/Case/CaseList';
@@ -112,6 +113,9 @@ const App = () => {
         </Route>
         <Route exact path="/Configurator/Resume">
           <Final />
+        </Route>
+        <Route exact path="/Profile">
+          <AccountSettings />
         </Route>
       </Switch>
     </Router>

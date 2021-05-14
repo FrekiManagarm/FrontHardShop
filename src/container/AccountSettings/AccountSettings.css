@@ -1,0 +1,49 @@
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contBtn {
+    display: flex;
+    justify-content: center;
+}
+
+.onglets {
+    -webkit-filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
+            filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
+    -webkit-transition: all .5s ease;
+            filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
+    -webkit-transition: all .5s ease;
+            transition: all .5s ease;
+    border: none;
+    font-family: 'Nunito';
+    font-weight: 600;
+    background: #FDD800;
+    color: black;
+    border-radius: 30px;
+    box-sizing: border-box;
+    padding: 10px 35px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.onglets:hover {
+    color: #FFFFFF;
+    background: #222222;
+    -webkit-filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
+        filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
+}
+
+.active {
+    background: #222222;
+    color: #FFFFFF;
+}
+
+.container {
+    padding-top: 150px;
+    padding-left: 15px;
+}
+

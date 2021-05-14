@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { CSSAnimationGroup } from 'react-css-animation-group';
 import CaseList from '../../container/Listing/CaseList/CaseList';
 import CoolingList from '../../container/Listing/CoolingList/CoolingList';
 import CPUList from '../../container/Listing/CPUList/CPUList';
