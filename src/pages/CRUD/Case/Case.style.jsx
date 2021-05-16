@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Sticky from 'react-stickynode';
 
 export const CaseCRUDWrapper = styled.div`
     display: flex;
